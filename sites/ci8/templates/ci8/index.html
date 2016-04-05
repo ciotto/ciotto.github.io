@@ -1,0 +1,140 @@
+{% extends 'ci8/base_site.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div id="index-banner" class="parallax-container">
+<div class="section no-pad-bot">
+  <div class="container">
+
+    <h1 class="header center light">{{ title }}</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">Code with love/hate</h5>
+    </div>
+  </div>
+</div>
+<div class="parallax"><img src="{% static 'ci8/background1.jpg' %}" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<div class="container">
+<div class="section">
+
+  <!--   Icon Section   -->
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center red-text text-darken-1"><i class="material-icons">group</i></h2>
+        <h5 class="center">About</h5>
+
+        <p class="light">I'm Christian Bianciotto and I live near Turin. I love computers and technologies and I like to work in different sectors, jumping from frontend to backend using always new tools.</p>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center red-text text-darken-1"><i class="material-icons">settings</i></h2>
+        <h5 class="center">Experience</h5>
+
+        <p class="light">For 3 years I has been working on the mobile world but now I prefer to develop with Python and Django.</p>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center red-text text-darken-1"><i class="material-icons">flash_on</i></h2>
+        <h5 class="center">Goals</h5>
+
+        <p class="light">I try to search always the best way to do all things in terms of good and fast development and using the best practice.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+<div class="section no-pad-bot">
+  <div class="container">
+    <div class="row center">
+      <h5 class="header col s12 light"></h5>
+    </div>
+  </div>
+</div>
+<div class="parallax"><img src="{% static 'ci8/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+<div class="section">
+
+  <div class="row">
+    <div class="col s12 center">
+      <h3><i class="mdi-content-send green-text text-darken-3"></i></h3>
+      <h4>Contacts</h4>
+      <p class="light"><a href="mailto:mail@ci8.it">mail@ci8.it</a></p>
+      <span class="contacts">
+        <a class="btn-floating green darken-3" href="https://www.linkedin.com/in/christian-bianciotto-b797a240" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-linkedin"></i></a>
+        <a class="btn-floating green darken-3" href="https://github.com/ciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-github-alt"></i></a>
+        <a class="btn-floating green darken-3" href="https://plus.google.com/u/0/+ChristianBianciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-google-plus"></i></a>
+        <a class="btn-floating green darken-3" href="https://stackoverflow.com/users/2504615/ciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-stackoverflow"></i></a>
+      </span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+<div class="section no-pad-bot">
+  <div class="container">
+    <div class="row center">
+      <h5 class="header col s12 light"></h5>
+    </div>
+  </div>
+</div>
+<div class="parallax"><img src="{% static 'ci8/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+</div>
+
+<div class="container">
+<div class="section">
+
+  <div class="row">
+    <div class="col s12 center">
+      <h3><i class="material-icons medium light-blue-text text-darken-3">group_work</i></h3>
+      <h4>Something else about me</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'ci8/images/climbing.jpg' %}">
+          <span class="card-title">Climbing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'ci8/images/bike.jpg' %}">
+          <span class="card-title">Motorcycling</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'ci8/images/trike.jpg' %}">
+          <span class="card-title">Trike Drifting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+{% endblock %}

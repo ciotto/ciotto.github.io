@@ -1,4 +1,9 @@
 .virtualenv/
 .idea/
+deploy/
+
+.env
 
 *.iml
+*.sqlite3
+*.pyc
