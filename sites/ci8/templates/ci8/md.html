@@ -1,0 +1,18 @@
+{% extends 'ci8/base_site.html' %}
+{% load staticfiles %}
+
+{% block title %}The Crocs Option{% if title %} - {{ title }}{% endif %}{% endblock %}
+
+{% block extra_logo %}<span>The Crocs Option</span>{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+<div class="section md">
+    <div class="col s12">
+        {{ md|safe }}
+    </div>
+</div>
+</div>
+{% endblock %}

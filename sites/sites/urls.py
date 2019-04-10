@@ -18,10 +18,6 @@ from django.conf.urls import url, include
 from staticsites.utilities import get_default_index, get_deploy_root
 from ci8.urls import urlpatterns as ci8
 
-urlpatterns = [
-    url(r'^ci8/', include(ci8)),
-]
-
 # Serve default deploy folder as site root
 if settings.DEBUG:
     from django.views.static import serve
@@ -41,3 +37,8 @@ if settings.DEBUG:
             }
         ),
     ]
+
+urlpatterns = [
+    url(r'^ci8/', include(ci8)),
+]
+
