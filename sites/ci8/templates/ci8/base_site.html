@@ -26,6 +26,9 @@
 <nav class="white" role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'ci8/images/logo.png' %}" alt="C8 Logo">{% block extra_logo %}{% endblock %}</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% for p in pages %}<li><a href="{{ p.1 }}">{{ p.0 }}</a></li>{% endfor %}
+        </ul>
     </div>
 </nav>
 {% endblock %}
