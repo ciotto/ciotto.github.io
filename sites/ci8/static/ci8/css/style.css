@@ -19,6 +19,10 @@ nav .brand-logo, nav .brand-logo img {
   height: 100%;
 }
 
+nav .brand-logo span {
+  padding-left: 10px;
+}
+
 p {
   line-height: 2rem;
 }
@@ -101,5 +105,24 @@ footer.page-footer {
   padding: 2px 3px;
 }
 
+.section.md img {
+    width: 100%;
+}
 
+.section.md pre, .section.md p code {
+    background-color: #eeeeee;
+    border-radius: 5px;
+}
+.section.md pre {
+    padding: 16px;
+}
+.section.md p code {
+    padding: 5px;
+}
+
+
+.section.md ul li {
+    list-style-type: disc;
+    margin-left: 25px;
+}
 
