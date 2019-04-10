@@ -67,3 +67,39 @@ footer.page-footer {
 .contacts a {
   margin: 20px;
 }
+
+.section.bottom {
+    position: absolute;
+    bottom: 0;
+    top: initial;
+}
+
+.photographer-credit {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 4px 6px;
+  font-family: -apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.photographer-credit svg {
+  height:  12px;
+  width: auto;
+  position: relative;
+  vertical-align: middle;
+  top:-1px; 
+  fill: white;
+}
+
+.photographer-credit svg {
+  display: inline-block;
+  padding: 2px 3px;
+}
+
+
+
