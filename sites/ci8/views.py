@@ -1,6 +1,8 @@
 import os
 import requests
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 from staticsites.decorators import staticview
 from markdown2 import Markdown
 
@@ -33,7 +35,7 @@ def index(request):
         'pages': pages,
     }
 
-    return render_to_response('ci8/index.html', ctx)
+    return render_to_response('ci8/index.html', ctx, context_instance=RequestContext(request))
 
 
 @staticview(path=haier_t32x_page[1])
@@ -42,9 +44,12 @@ def haier_t32x(request):
         'title': haier_t32x_page[0],
         'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/haier-t32x/README.md'),
         'pages': pages,
+        'path': '/%s' % haier_t32x_page[1],
+        'description': 'Reverse engineering the Haier T325 Cleaning Robot.',
+        'og_image': 'http://ci8.it%s' % static('/ci8/images/share/haier_t32x.jpg'),
     }
 
-    return render_to_response('ci8/md.html', ctx)
+    return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
 @staticview(path=digipass_go_6_page[1])
@@ -55,6 +60,9 @@ def digipass_go_6(request):
             'https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/README.md'
         ),
         'pages': pages,
+        'path': '/%s' % digipass_go_6_page[1],
+        'description': 'Reverse engineering the Vasco DIGIPASS GO 6.',
+        'og_image': 'http://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
     }
 
-    return render_to_response('ci8/md.html', ctx)
+    return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
