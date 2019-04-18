@@ -10,9 +10,9 @@ from markdown2 import Markdown
 markdowner = Markdown(extras=['tables', 'fenced-code-blocks'])
 
 # Pages
-about_me_page = ('About me', 'index.html')
-haier_t32x_page = ('Reverse the Haier T32X robot', 'haier-t32x.html')
-digipass_go_6_page = ('DIGIPASS GO 6', 'digipass-go-6.html')
+about_me_page = ('About me', 'index.html', '2019-04-11', 'monthly', 1)
+haier_t32x_page = ('Haier T32X robot', 'haier-t32x.html', '2019-04-11', 'monthly', 0.8)
+digipass_go_6_page = ('DIGIPASS GO 6', 'digipass-go-6.html', '2019-04-11', 'monthly', 0.8)
 pages = [
     about_me_page,
     haier_t32x_page,
@@ -66,3 +66,12 @@ def digipass_go_6(request):
     }
 
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
+
+
+@staticview(path='sitemap.xml')
+def sitemap(request):
+    ctx = {
+        'pages': pages,
+    }
+
+    return render_to_response('ci8/sitemap.xml', ctx, content_type='application/xml')
