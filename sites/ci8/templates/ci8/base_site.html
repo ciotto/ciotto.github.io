@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="{% if og_site_name %}{{ og_site_name }}{% else %}Christian Bianciotto{% endif %}">
     <meta property="og:url" content="{% if og_url %}{{ og_url }}{% else %}http://ci8.it/{{ path }}{% endif %}"/>
     <meta property="og:title" content="{% block fb_title %}{% if og_title %}{{ og_title }}{% else %}Christian Bianciotto{% endif %}{% endblock %}"/>
-    <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}"/>
+    <meta property="og:description" content="{% block description %}{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}{% endblock %}"/>
     <meta property="og:type" content="{% if og_type %}{{ og_type }}{% else %}{% if og_video %}video.other{% else %}article{% endif %}{% endif %}">
 
     {% if og_video %}
@@ -53,13 +53,13 @@
     <meta name="twitter:url" content="{% if og_url %}{{ og_url }}{% else %}http://ci8.it/{{ path }}{% endif %}">
     <meta name="twitter:title" content="{% block tw_title %}{% if og_title %}{{ og_title }}{% else %}Christian Bianciotto{% endif %}{% endblock %}">
     <meta name="twitter:image" content="{% if og_image %}{{ og_image }}{% else %}http://ci8.it{% static '/ci8/images/share/ci8.jpg' %}{% endif %}">
-    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}">
+    <meta name="twitter:description" content="{% block fb_description %}{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}{% endblock %}">
     <!-- Twitter -->
 
     <!-- SEO -->
     <link rel="canonical" href="http://ci8.it/{{ path }}" />
 
-    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}">
+    <meta name="description" content="{% block tw_description %}{% if description %}{{ description }}{% else %}{{ default_description }}{% endif %}{% endblock %}">
 
     <meta name="robots" content="{% if robots %}{{ robots }}{% else %}index, follow{% endif %}" />
     <!-- SEO -->

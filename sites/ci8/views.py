@@ -19,12 +19,19 @@ def html_from_markdown_url(url):
 
 
 # Pages
-about_me_page = {
-    'title': 'About me',
+home_page = {
+    'title': 'Home',
     'path': 'index.html',
     'lastmod': '2019-04-18',
     'changefreq': 'monthly',
-    'priority': 1
+    'priority': 1,
+}
+about_me_page = {
+    'title': 'About me',
+    'path': 'about.html',
+    'lastmod': '2019-04-18',
+    'changefreq': 'monthly',
+    'priority': 0.9,
 }
 haier_t32x_page = {
     'title': 'Haier T32X robot',
@@ -47,21 +54,37 @@ digipass_go_6_page = {
     'og_image': 'http://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
 }
 pages = [
+    home_page,
     about_me_page,
     haier_t32x_page,
     digipass_go_6_page,
 ]
 
 
-@staticview(path=about_me_page['path'])
+@staticview(path=home_page['path'])
 def index(request):
+    ctx = dict(home_page)
+    ctx.update({
+        'title': None,
+        'pages': pages,
+        'articles': [
+            haier_t32x_page,
+            digipass_go_6_page,
+        ]
+    })
+
+    return render_to_response('ci8/index.html', ctx, context_instance=RequestContext(request))
+
+
+@staticview(path=about_me_page['path'])
+def about_me(request):
     ctx = dict(about_me_page)
     ctx.update({
         'title': 'Christian Bianciotto',
         'pages': pages,
     })
 
-    return render_to_response('ci8/index.html', ctx, context_instance=RequestContext(request))
+    return render_to_response('ci8/about.html', ctx, context_instance=RequestContext(request))
 
 
 @staticview(path=haier_t32x_page['path'])
