@@ -17,6 +17,8 @@ nav .brand-logo {
 
 nav .brand-logo, nav .brand-logo img {
   height: 100%;
+  float: left;
+  line-height: 55px;
 }
 
 nav .brand-logo span {
