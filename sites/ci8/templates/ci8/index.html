@@ -2,95 +2,46 @@
 {% load staticfiles %}
 
 {% block content %}
-<div id="index-banner" class="parallax-container">
-<div class="section no-pad-bot">
-  <div class="container">
-
-    <h1 class="header center light">{{ title }}</h1>
-    <div class="row center">
-      <h5 class="header col s12 light">Code with love/hate</h5>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{% static 'ci8/background1.jpg' %}')">
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="page-heading">
+        <h1>{{ title }}</h1>
+        <span class="subheading">Code with love/hate</span>
+      </div>
     </div>
   </div>
 </div>
-<div class="section bottom">
-  <div class="container">
-    <div class="row right">
-      <a class="photographer-credit" href="https://unsplash.com/@clemhlrdt?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Clément H">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg>
-        </span>
-        <span>Clément H</span>
-      </a>
-    </div>
-  </div>
-</div>
-<div class="parallax"><img src="{% static 'ci8/background1.jpg' %}" alt="Unsplashed background img 1"></div>
-</div>
+</header>
 
 
 <div class="container">
-<div class="section">
-
-  <!--   Icon Section   -->
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="icon-block">
-        <h2 class="center grey-text text-darken-1"><i class="material-icons">group</i></h2>
-        <h5 class="center">About</h5>
-
-        <p class="light">I am Christian an italian Software Engineer and I live near Turin. I love computers and technologies and I like to work in different sectors, jumping from frontend to backend using always new tools.</p>
-      </div>
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <h5>About</h5>
+        <p>I am Christian an italian Software Engineer and I live near Turin. I love computers and technologies and I like to work in different sectors, jumping from frontend to backend using always new tools.</p>
     </div>
 
-    <div class="col s12 m6">
-      <div class="icon-block">
-        <h2 class="center grey-text text-darken-1"><i class="material-icons">flash_on</i></h2>
-        <h5 class="center">Goals</h5>
-
-        <p class="light">I try to search always the best way to do all things in terms of good and fast development and using the best practice.</p>
-      </div>
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <h5>Goals</h5>
+        <p>I try to search always the best way to do all things in terms of good and fast development and using the best practice.</p>
     </div>
 
-    <div class="col s12">
-      <div class="icon-block">
-        <h2 class="center grey-text text-darken-1"><i class="material-icons">settings</i></h2>
-        <h5 class="center">Experience</h5>
-
-        <p class="light">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <h5>Experience</h5>
+        <p>
           For 3 years I have been working on the mobile applications for iOS and Android devices and I reached a good level of experience with Android Studio, fragment, Xcode, storyboard and CoreData.
         </p>
-
-        <p class="light">
+        <p>
           I have started to work with Python and Django since 2014, I have increased my skils and after a few years of experience I have designed, developed and mantained the web application of Realisti.co with the REST API, obtaining a test coverage of 94% thanks to Selenium and a Jenkins continuos integration testing. I have also designed and mantained an AWS infrastructure with 10 machines using Ansible and I have worked and mantained on a deploy script that allows to deploy without downtime.
         </p>
-
-        <p class="light">
+        <p>
           I'm interested in software security (I have done some CTF and security assessment), electronics (in my spare time I designed PCB for personal project) and embedded systems.
         </p>
-      </div>
     </div>
-  </div>
-
-</div>
-</div>
-
-<div class="container">
-<div class="section">
-
-  <div class="row">
-    <div class="col s12 center">
-      <h3><i class="mdi-content-send grey-text text-darken-1"></i></h3>
-      <h4>Contacts</h4>
-      <p class="light"><a href="mailto:mail@ci8.it">mail@ci8.it</a></p>
-      <span class="contacts">
-        <a class="btn-floating grey darken-1" href="https://www.linkedin.com/in/christian-bianciotto-b797a240" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-linkedin"></i></a>
-        <a class="btn-floating grey darken-1" href="https://github.com/ciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-github-alt"></i></a>
-        <a class="btn-floating grey darken-1" href="https://plus.google.com/u/0/+ChristianBianciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-google-plus"></i></a>
-        <a class="btn-floating grey darken-1" href="https://stackoverflow.com/users/2504615/ciotto" target="_blank"><i class="zmdi zmdi-hc-2x zmdi-stackoverflow"></i></a>
-      </span>
-    </div>
-  </div>
-
 </div>
 </div>
 

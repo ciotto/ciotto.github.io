@@ -8,14 +8,15 @@
 
 {% block extra_logo %}<span>The Crocs Options</span>{% endblock %}
 
+{% block header-classes %} dark{% endblock %}
+
 {% block content %}
-
-
-<div class="container">
-<div class="section md">
-    <div class="col s12">
+<div class="container md">
+    <div class="col-lg-10 mx-auto">
         {{ md|safe }}
     </div>
-</div>
+    <div class="col-lg-10 mx-auto text-right">
+        <em>Last update on {{ lastmod }}</em>
+    </div>
 </div>
 {% endblock %}
