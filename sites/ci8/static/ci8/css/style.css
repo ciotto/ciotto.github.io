@@ -1,83 +1,32 @@
 /* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
+body {
+    font-size: 16px;
 }
 
-nav .brand-logo {
-  padding: 5px;
+.navbar-brand img {
+    height: 38px;
+}
+.navbar-brand span {
+    padding-left: 10px;
 }
 
-nav .brand-logo, nav .brand-logo img {
-  height: 100%;
-  float: left;
-  line-height: 55px;
+#mainNav.dark {
+    background: #343a40cc;
+    border-bottom: 1px solid #343a40;
+}
+#mainNav.dark .navbar-brand,
+#mainNav.dark .navbar-nav>li.nav-item>a,
+#mainNav.dark .navbar-toggler {
+    color: #fff;
 }
 
-nav .brand-logo span {
-  padding-left: 10px;
-}
-
-p {
-  line-height: 2rem;
-}
-
-.button-collapse {
-  color: #26a69a;
-}
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-.parallax-container .section {
-  width: 100%;
-}
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
-}
-
-.contacts a {
-  margin: 20px;
-}
-
-.section.bottom {
-    position: absolute;
-    bottom: 0;
-    top: initial;
+@media only screen and (min-width: 992px) {
+    #mainNav .navbar-brand {
+        padding: 0 10px;
+    }
+    #mainNav.is-fixed {
+        top: -55px;
+    }
 }
 
 .photographer-credit {
@@ -98,7 +47,7 @@ footer.page-footer {
   width: auto;
   position: relative;
   vertical-align: middle;
-  top:-1px; 
+  top:-1px;
   fill: white;
 }
 
@@ -107,24 +56,38 @@ footer.page-footer {
   padding: 2px 3px;
 }
 
-.section.md img {
+.container.md {
+    margin-top: 55px;
+    padding-top: 20px;
+}
+
+.container.md img {
     width: 100%;
 }
 
-.section.md pre, .section.md p code {
+.container.md pre, .container.md p code {
     background-color: #eeeeee;
     border-radius: 5px;
 }
-.section.md pre {
+.container.md pre {
     padding: 16px;
 }
-.section.md p code {
+.container.md p code {
     padding: 5px;
+    color: #212529;
 }
-
-
-.section.md ul li {
+.container.md ul {
+    padding-left: 5px;
+}
+.container.md ul li {
     list-style-type: disc;
     margin-left: 25px;
 }
-
+.container.md td, .container.md th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.container.md table {
+    width: 100%;
+}
