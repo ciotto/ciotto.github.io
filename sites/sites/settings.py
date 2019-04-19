@@ -143,13 +143,15 @@ from django.core.files.storage import FileSystemStorage
 from staticsites.conf_dict import DeployTypes
 from storages.backends.ftp import FTPStorage
 
-TEST_FTP_CONF = {
-    'user': env('TEST_FTP_USER'),
-    'password': env('TEST_FTP_PASSWORD'),
-    'host': env('TEST_FTP_HOST'),
-    'port': env('TEST_FTP_PORT'),
-    'path': env('TEST_FTP_PATH'),
-}
+STATICSITE_STATIC_ROOT = DeployTypes({
+    '': 'static',
+    'prod_ftp': '',
+})
+STATICSITE_STATIC_URL = DeployTypes({
+    '': '/static/',
+    'prod_ftp': '',
+})
+
 PROD_FTP_CONF = {
     'user': env('PROD_FTP_USER'),
     'password': env('PROD_FTP_PASSWORD'),
@@ -159,15 +161,13 @@ PROD_FTP_CONF = {
 }
 
 STATICSITE_DEPLOY_ROOT = DeployTypes({
-    'dev': 'deploy/%(deploy_type)s',
-    'test': 'ftp://%(user)s:%(password)s@%(host)s:%(port)s%(path)s' % TEST_FTP_CONF,
-    'prod': 'ftp://%(user)s:%(password)s@%(host)s:%(port)s%(path)s' % PROD_FTP_CONF,
+    '': './',
+    'prod_ftp': 'ftp://%(user)s:%(password)s@%(host)s:%(port)s%(path)s' % PROD_FTP_CONF,
 })
 
 STATICSITE_DEFAULT_FILE_STORAGE = DeployTypes({
-    'dev': FileSystemStorage,
-    'test': FTPStorage,
-    'prod': FTPStorage,
+    '': FileSystemStorage,
+    'prod_ftp': FTPStorage,
 })
 
 STATICSITE_GZIP = False
