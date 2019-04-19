@@ -13,30 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf import settings
 from django.conf.urls import url, include
-from staticsites.utilities import get_default_index, get_deploy_root
 from ci8.urls import urlpatterns as ci8
-
-# Serve default deploy folder as site root
-if settings.DEBUG:
-    from django.views.static import serve
-    urlpatterns = [
-        url(
-            r'^(?:%s)?$' % get_default_index(deploy_type='dev'),
-            serve,
-            {
-                'document_root': get_deploy_root(deploy_type='dev'), 'path': get_default_index(deploy_type='dev')
-            }
-        ),
-        url(
-            r'^(?P<path>.*)$',
-            serve,
-            {
-                'document_root': get_deploy_root(deploy_type='dev')
-            }
-        ),
-    ]
 
 urlpatterns = [
     url(r'^ci8/', include(ci8)),
