@@ -15,7 +15,10 @@ def html_from_markdown_url(url):
 
     response = requests.get(url)
     content = response.content.replace('](images', '](%s/images' % base_url)
-    return markdowner.convert(content)
+    content = markdowner.convert(content)
+    content = content.replace('<table>', '<div class="table-responsive"><table>')
+    content = content.replace('</table>', '</table></div>')
+    return content
 
 
 # Pages
