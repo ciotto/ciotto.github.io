@@ -1,5 +1,6 @@
 import os
 import requests
+from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -15,6 +16,7 @@ def html_from_markdown_url(url):
 
     response = requests.get(url)
     content = response.content.replace('](images', '](%s/images' % base_url)
+    content = '\n'.join(content.split('\n', skip_title)[skip_title:])
     content = markdowner.convert(content)
     content = content.replace('<table>', '<div class="table-responsive"><table>')
     content = content.replace('</table>', '</table></div>')
@@ -45,6 +47,15 @@ haier_t32x_page = {
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/haier-t32x/README.md'),
     'description': 'Reverse engineering the Haier T325 Cleaning Robot.',
     'og_image': 'http://ci8.it%s' % static('/ci8/images/share/haier_t32x.jpg'),
+    'tags': [
+        ('reversing', 'Reversing'),
+        ('stm32', 'STM32'),
+        ('swd', 'SWD'),
+        ('uart', 'UART'),
+        ('st-link', 'ST-Link'),
+        ('openocd', 'OpenOCD'),
+        ('hardware-security', 'Hardware Security'),
+    ]
 }
 digipass_go_6_page = {
     'title': 'DIGIPASS GO 6',
@@ -55,6 +66,9 @@ digipass_go_6_page = {
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/README.md'),
     'description': 'Reverse engineering the Vasco DIGIPASS GO 6.',
     'og_image': 'http://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
+    'tags': [
+        ('reversing', 'Reversing'),
+    ]
 }
 pages = [
     home_page,
@@ -110,6 +124,26 @@ def digipass_go_6(request):
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
+
+
+@staticview(path='tags.html')
+def tags(request):
+    tags = {}
+    for page in pages:
+        if 'tags' in page:
+            for tag_slug, tag_name in page['tags']:
+                if tag_slug not in tags:
+                    tags[tag_slug] = {
+                        'slug': tag_slug,
+                        'name': tag_name,
+                        'pages': []
+                    }
+                tags[tag_slug]['pages'].append(page)
+    ctx = {
+        'tags': tags,
+    }
+
+    return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
