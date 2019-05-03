@@ -85,6 +85,21 @@ digipass_go_6_page = {
         ('reversing', 'Reversing'),
     ]
 }
+multiple_choice_test_omr_page = {
+    'title': 'Multiple Choice Test OMR',
+    'path': 'multiple-choice-test-omr.html',
+    'lastmod': '2019-04-26',
+    'changefreq': 'monthly',
+    'priority': 0.8,
+    'md': html_from_markdown_url('sites/ci8/multiple_choice_test_omr/README.md'),
+    'description': 'Making an OMR for a generic multiple choice test, step by step, using OpenCV and Python.',
+    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/multiple_choice_test_omr.jpg'),
+    'tags': [
+        ('omr', 'OMR'),
+        ('opencv', 'OpenCV'),
+        ('python', 'Python'),
+    ]
+}
 pages = [
     home_page,
     about_me_page,
@@ -139,6 +154,14 @@ def digipass_go_6(request):
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
+@staticview(path=multiple_choice_test_omr_page['path'])
+def multiple_choice_test_omr(request):
+    ctx = dict(multiple_choice_test_omr_page)
+    ctx.update({
+        'pages': pages,
+    })
+
+    return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
 @staticview(path='tags.html')
@@ -159,6 +182,8 @@ def tags(request):
     }
 
     return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
+
+
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
