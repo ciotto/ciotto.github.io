@@ -1,5 +1,7 @@
 import os
+import re
 import requests
+from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -10,11 +12,26 @@ from markdown2 import Markdown
 markdowner = Markdown(extras=['tables', 'fenced-code-blocks'])
 
 
-def html_from_markdown_url(url):
-    base_url = os.path.dirname(url)
+def html_from_markdown_url(url, skip_title=1):
+    if url.startswith('http://') or url.startswith('https://'):
+        base_url = os.path.dirname(url)
+        base_image_url = base_url
 
-    response = requests.get(url)
-    content = response.content.replace('](images', '](%s/images' % base_url)
+        response = requests.get(url)
+        content = response.content
+    else:
+        base_url = settings.BASE_REPO_URL + os.path.dirname(url)
+        base_image_url = settings.BASE_REPO_IMAGE_URL + os.path.dirname(url)
+
+        with open(url, 'r') as f:
+            content = f.read()
+    content = '\n'.join(content.split('\n', skip_title)[skip_title:])
+    content = re.sub(re.compile(r'!\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'![\1](%(path)s/\2)', content) % {
+        'path': base_image_url
+    }
+    content = re.sub(re.compile(r'\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'[\1](%(path)s/\2)', content) % {
+        'path': base_url
+    }
     content = markdowner.convert(content)
     content = content.replace('<table>', '<div class="table-responsive"><table>')
     content = content.replace('</table>', '</table></div>')
@@ -45,6 +62,15 @@ haier_t32x_page = {
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/haier-t32x/README.md'),
     'description': 'Reverse engineering the Haier T325 Cleaning Robot.',
     'og_image': 'http://ci8.it%s' % static('/ci8/images/share/haier_t32x.jpg'),
+    'tags': [
+        ('reversing', 'Reversing'),
+        ('stm32', 'STM32'),
+        ('swd', 'SWD'),
+        ('uart', 'UART'),
+        ('st-link', 'ST-Link'),
+        ('openocd', 'OpenOCD'),
+        ('hardware-security', 'Hardware Security'),
+    ]
 }
 digipass_go_6_page = {
     'title': 'DIGIPASS GO 6',
@@ -55,6 +81,24 @@ digipass_go_6_page = {
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/README.md'),
     'description': 'Reverse engineering the Vasco DIGIPASS GO 6.',
     'og_image': 'http://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
+    'tags': [
+        ('reversing', 'Reversing'),
+    ]
+}
+multiple_choice_test_omr_page = {
+    'title': 'Multiple Choice Test OMR',
+    'path': 'multiple-choice-test-omr.html',
+    'lastmod': '2019-04-26',
+    'changefreq': 'monthly',
+    'priority': 0.8,
+    'md': html_from_markdown_url('sites/ci8/multiple_choice_test_omr/README.md'),
+    'description': 'Making an OMR for a generic multiple choice test, step by step, using OpenCV and Python.',
+    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/multiple_choice_test_omr.jpg'),
+    'tags': [
+        ('omr', 'OMR'),
+        ('opencv', 'OpenCV'),
+        ('python', 'Python'),
+    ]
 }
 pages = [
     home_page,
@@ -108,6 +152,36 @@ def digipass_go_6(request):
     })
 
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
+
+
+@staticview(path=multiple_choice_test_omr_page['path'])
+def multiple_choice_test_omr(request):
+    ctx = dict(multiple_choice_test_omr_page)
+    ctx.update({
+        'pages': pages,
+    })
+
+    return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
+
+
+@staticview(path='tags.html')
+def tags(request):
+    tags = {}
+    for page in pages:
+        if 'tags' in page:
+            for tag_slug, tag_name in page['tags']:
+                if tag_slug not in tags:
+                    tags[tag_slug] = {
+                        'slug': tag_slug,
+                        'name': tag_name,
+                        'pages': []
+                    }
+                tags[tag_slug]['pages'].append(page)
+    ctx = {
+        'tags': tags,
+    }
+
+    return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
 
 
 @staticview(path='sitemap.xml')
