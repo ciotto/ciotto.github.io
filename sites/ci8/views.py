@@ -100,6 +100,13 @@ multiple_choice_test_omr_page = {
         ('python', 'Python'),
     ]
 }
+tags_page = {
+    'title': 'Tags',
+    'path': 'tags.html',
+    'lastmod': '2019-04-26',
+    'changefreq': 'monthly',
+    'priority': 0.8,
+}
 pages = [
     home_page,
     about_me_page,
@@ -164,7 +171,7 @@ def multiple_choice_test_omr(request):
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
-@staticview(path='tags.html')
+@staticview(path=tags_page['path'])
 def tags(request):
     tags = {}
     for page in pages:
@@ -177,9 +184,11 @@ def tags(request):
                         'pages': []
                     }
                 tags[tag_slug]['pages'].append(page)
-    ctx = {
+
+    ctx = dict(tags_page)
+    ctx.update({
         'tags': tags,
-    }
+    })
 
     return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
 
@@ -187,7 +196,7 @@ def tags(request):
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
-        'pages': pages,
+        'pages': pages + [tags_page],
     }
 
     return render_to_response('ci8/sitemap.xml', ctx, content_type='application/xml')
