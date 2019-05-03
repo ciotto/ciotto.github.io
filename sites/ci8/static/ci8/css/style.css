@@ -31,7 +31,7 @@ body {
         padding: 0 10px;
     }
     #mainNav.is-fixed {
-        top: -55px;
+        top: -57px;
     }
 }
 
@@ -62,8 +62,18 @@ body {
   padding: 2px 3px;
 }
 
+.tags a, .tags a:visited {
+    color: #f44336;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.tags a:hover {
+    color: #333;
+}
+
+.container.title {
+    margin-top: 75px;
+}
 .container.md {
-    margin-top: 55px;
     padding-top: 20px;
 }
 
