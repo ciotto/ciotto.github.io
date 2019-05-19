@@ -1,0 +1,26 @@
+---
+site_name: 'django'
+site_web_root: '/var/www/django'
+webapp_username: 'django'
+db_version: '9.6'
+db_name: test
+db_user: dbuser
+db_password: password
+extra_repositories_keys:
+  - https://www.postgresql.org/media/keys/ACCC4CF8.asc
+extra_repositories:
+  - 'deb http://apt.postgresql.org/pub/repos/apt/ {{ distro }}-pgdg main'
+extra_packages:
+  - postgresql-client-{{ db_version }}
+  - build-essential
+  - python-virtualenv
+  - python-dev
+  - vim
+  - libpq-dev
+  - libfreetype6-dev
+  - libjpeg-dev
+  - libgl1-mesa-dev
+  - libffi-dev
+  - default-jre
+  - libssl-dev
+webapp_public_key: '../vagrant.pub'
