@@ -2,7 +2,7 @@
 
 ### (Work in Progress)
 
-Some days ago my wife ask me to help her to correct some multiple choice tests and, since I hate to lost my time, I 
+Some days ago, my wife asked me to help her to correct some multiple choice tests and, since I hate to lost my time, I 
 spent some hours in order to write a script that automate the data extrapolation.
 
 After googling some information, I found an [interesting article by Adrian Rosebrock](https://www.pyimagesearch.com/2016/10/03/bubble-sheet-multiple-choice-scanner-and-test-grader-using-omr-python-and-opencv/) that talk about this, so I tried his approach  and the result of [first test](test1.py) was good:
@@ -32,7 +32,7 @@ if w >= 20 and h >= 20 and ar >= 0.9 and ar <= 1.1:
 ```
 
 I tried to do some changes in the code, in particular I allowed a more flexible aspect ratio and I stored the value of 
-`countNonZero` in a matrix in order to determine a threshold value and used it for find the checked boxes, this allowed 
+`countNonZero` in a matrix in order to determine a threshold value and use it for find the checked boxes, this allowed 
 to find multiple checked boxes for each line.
 
 I runned the [second test](test2.py) and the results was better:
@@ -51,10 +51,9 @@ expected:
 ![Test 4](images/test4/res_test5-b.png)
 
 Of course, with bigger checkboxes or in general with a well formed test the results are better, but my scope is to 
-create a script that works in all the casesOf course, with bigger checkboxes or in general with a well formed test the 
-results are better, but my scope is to create a script that works in all the cases with correct configurations.
+create a script that works in all the cases with correct configurations.
 
-In the test five I added a bounding box as new parameter and all the results have been perfect.
+In the [test number five](test5.py), I added a bounding box as new parameter and all the results have been perfect.
 
 ![Test 5](images/test5/res_test5-b.png)
 
