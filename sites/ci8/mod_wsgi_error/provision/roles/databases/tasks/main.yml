@@ -1,0 +1,46 @@
+---
+- name: check mandatory parameters
+  fail: msg="db_user, db_name, db_password and db_version parameters are not defined"
+  when: db_user is not defined or db_name is not defined or db_password is not defined or db_version is not defined
+
+# here we need to pass the LANG env variable otherwise the template0 will be created with
+#  another locale
+- name: install necessary packages
+  apt:
+    name: ['libpq-dev', 'postgresql-{{ db_version }}', 'python-psycopg2']
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Starting postgresql service if not running
+  service:
+    name: postgresql
+    state: started
+    enabled: true
+
+- name: create database
+  become: True
+  become_user: postgres
+  postgresql_db:
+      name="{{ db_name }}"
+      encoding='UTF-8'
+      lc_collate='it_IT.UTF-8'
+      lc_ctype='it_IT.UTF-8'
+      template='template0'
+
+# https://groups.google.com/forum/#!topic/ansible-project/IknBo5QvJXQ
+- name: create database user {% if development is defined %}(development mode){% endif %}
+  become: True
+  become_user: postgres
+  postgresql_user:
+      db="{{ db_name }}"
+      user="{{ db_user }}"
+      password="{{ db_password }}"
+      role_attr_flags={% if development is not defined %}NO{% endif %}CREATEDB,NOSUPERUSER
+
+- name: grant privileges to user [DEVELOPMENT ENABLED]
+  become: True
+  become_user: postgres
+  postgresql_db:
+    name="{{ db_name }}"
+    owner="{{ db_user }}"
+  when: development is defined
