@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^%s$' % views.haier_t32x_page['path'], views.haier_t32x),
     url(r'^%s$' % views.digipass_go_6_page['path'], views.digipass_go_6),
     url(r'^%s$' % views.multiple_choice_test_omr_page['path'], views.multiple_choice_test_omr),
-    url(r'^tags.html$', views.tags),
+    url(r'^%s$' % views.mod_wsgi_error_page['path'], views.mod_wsgi_error),
+    url(r'^%s$' % views.tags_page['path'], views.tags),
     url(r'^sitemap.xml$', views.sitemap),
 ]

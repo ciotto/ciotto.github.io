@@ -1,0 +1,36 @@
+
+---
+# Create user and its home directory
+- name: check mandatory parameters
+  fail: msg="site_web_root, webapp_username and webapp_public_key parameters are not defined"
+  when: site_web_root is not defined or webapp_username is not defined or webapp_public_key is not defined
+
+- name: creates webroot
+  file: path={{ site_web_root }} state=directory
+
+- name: create user {{ webapp_username }} with home {{ site_web_root }}
+  user: name={{ webapp_username }} home={{ site_web_root }} move_home=yes shell=/bin/bash comment="Account webapp"
+
+- name: change permission on home
+  file: path={{ site_web_root }} state=directory owner={{ webapp_username }} group={{ webapp_username}} mode=755
+
+- name: creates webroot app
+  file: path={{ site_web_root }}/{{ item }} state=directory owner={{ webapp_username }} group={{ webapp_username }}
+  with_items:
+    - static
+    - media
+    - logs
+
+- name: create virtualenv
+  become: yes
+  become_user: "{{ webapp_username }}"
+  pip: name=pip virtualenv={{ site_web_root }}/.virtualenv version=9.0.1
+
+- name: install celery
+  become: yes
+  become_user: "{{ webapp_username }}"
+  pip: name=celery virtualenv={{ site_web_root }}/.virtualenv
+
+- name: configure authorize_keys for {{ webapp_public_key}}
+  authorized_key: user={{ webapp_username }}
+                  key="{{ lookup('file', webapp_public_key ) }}"

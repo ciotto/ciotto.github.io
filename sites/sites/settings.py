@@ -137,7 +137,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 BASE_REPO_URL = 'https://github.com/ciotto/ciotto.github.io/blob/master/'
-BASE_REPO_IMAGE_URL = 'https://ci8.it/'
+BASE_REPO_IMAGE_URL = 'https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/'
 
 # django-static-sites
 FTP_STORAGE_LOCATION = ''

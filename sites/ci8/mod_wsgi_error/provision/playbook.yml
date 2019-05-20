@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: True
+  roles:
+    - { role: python, tags: python }
+    - { role: common, tags: common }
+    - { role: webapp, tags: webapp }
+    - { role: apache, tags: apache }
+
+    - { role: databases, tags: databases, when: db_name is defined }
