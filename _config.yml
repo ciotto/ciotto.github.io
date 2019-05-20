@@ -1,0 +1,6 @@
+exclude:
+  - CNAME
+  - LICENSE
+  - README.md
+  - sites/
+  - bin/

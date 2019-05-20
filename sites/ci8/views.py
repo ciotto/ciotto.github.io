@@ -9,7 +9,7 @@ from staticsites.decorators import staticview
 from markdown2 import Markdown
 
 
-markdowner = Markdown(extras=['tables', 'fenced-code-blocks'])
+markdowner = Markdown(extras=['tables', 'fenced-code-blocks', 'code-friendly'])
 
 
 def html_from_markdown_url(url, skip_title=1):
@@ -26,12 +26,8 @@ def html_from_markdown_url(url, skip_title=1):
         with open(url, 'r') as f:
             content = f.read()
     content = '\n'.join(content.split('\n', skip_title)[skip_title:])
-    content = re.sub(re.compile(r'!\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'![\1](%(path)s/\2)', content) % {
-        'path': base_image_url
-    }
-    content = re.sub(re.compile(r'\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'[\1](%(path)s/\2)', content) % {
-        'path': base_url
-    }
+    content = re.sub(re.compile(r'!\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'![\1](' + base_image_url + r'/\2)', content)
+    content = re.sub(re.compile(r'\[(.+)\]\((?!http)(.+)\)', re.MULTILINE), r'[\1](' + base_url + r'/\2)', content)
     content = markdowner.convert(content)
     content = content.replace('<table>', '<div class="table-responsive"><table>')
     content = content.replace('</table>', '</table></div>')
@@ -70,6 +66,7 @@ haier_t32x_page = {
         ('st-link', 'ST-Link'),
         ('openocd', 'OpenOCD'),
         ('hardware-security', 'Hardware Security'),
+        ('gdb', 'GDB'),
     ]
 }
 digipass_go_6_page = {
@@ -99,6 +96,29 @@ multiple_choice_test_omr_page = {
         ('opencv', 'OpenCV'),
         ('python', 'Python'),
     ]
+}
+mod_wsgi_error_page = {
+    'title': 'Apache mod_wsgi/psycopg2 error',
+    'path': 'mod-wsgi-error.html',
+    'lastmod': '2019-04-26',
+    'changefreq': 'monthly',
+    'priority': 0.8,
+    'md': html_from_markdown_url('sites/ci8/mod_wsgi_error/README.md'),
+    'description': 'mod_wsgi: Truncated or oversized response headers received from daemon process.',
+    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/mod_wsgi_error.jpg'),
+    'tags': [
+        ('apache', 'Apache'),
+        ('wsgi', 'WSGI'),
+        ('python', 'Python'),
+        ('gdb', 'GDB'),
+    ]
+}
+tags_page = {
+    'title': 'Tags',
+    'path': 'tags.html',
+    'lastmod': '2019-04-26',
+    'changefreq': 'monthly',
+    'priority': 0.8,
 }
 pages = [
     home_page,
@@ -164,7 +184,17 @@ def multiple_choice_test_omr(request):
     return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
 
 
-@staticview(path='tags.html')
+@staticview(path=mod_wsgi_error_page['path'])
+def mod_wsgi_error(request):
+    ctx = dict(mod_wsgi_error_page)
+    ctx.update({
+        'pages': pages,
+    })
+
+    return render_to_response('ci8/md.html', ctx, context_instance=RequestContext(request))
+
+
+@staticview(path=tags_page['path'])
 def tags(request):
     tags = {}
     for page in pages:
@@ -177,9 +207,11 @@ def tags(request):
                         'pages': []
                     }
                 tags[tag_slug]['pages'].append(page)
-    ctx = {
+
+    ctx = dict(tags_page)
+    ctx.update({
         'tags': tags,
-    }
+    })
 
     return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
 
@@ -187,7 +219,7 @@ def tags(request):
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
-        'pages': pages,
+        'pages': pages + [tags_page],
     }
 
     return render_to_response('ci8/sitemap.xml', ctx, content_type='application/xml')

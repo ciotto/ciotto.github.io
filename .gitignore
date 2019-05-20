@@ -1,4 +1,5 @@
 .virtualenv/
+.vagrant/
 .idea/
 deploy/
 
