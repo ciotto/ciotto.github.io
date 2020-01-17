@@ -1,0 +1,20 @@
+{% load staticfiles i18n %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Provider</th>
+      <th scope="col">Purpose</th>
+      <th scope="col">Expiration</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cookie in cookies %}<tr>
+      <td>{{ cookie.name }}</td>
+      <td>{{ cookie.provider }}</td>
+      <td>{{ cookie.purpose }}</td>
+      <td>{{ cookie.expiration }}</td>
+    </tr>{% endfor %}
+  </tbody>
+</table>

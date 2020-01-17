@@ -107,3 +107,10 @@ body {
 .container.md table {
     width: 100%;
 }
+.eupopup-button {
+    color: #f44336;
+}
+.eupopup-button:hover, .eupopup-button:focus {
+    color: #fff;
+}
+
