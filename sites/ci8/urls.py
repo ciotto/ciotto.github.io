@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^%s$' % views.multiple_choice_test_omr_page['path'], views.multiple_choice_test_omr),
     url(r'^%s$' % views.mod_wsgi_error_page['path'], views.mod_wsgi_error),
     url(r'^%s$' % views.tags_page['path'], views.tags),
+    url(r'^%s$' % views.cookies_policy_page['path'], views.cookies_policy),
     url(r'^sitemap.xml$', views.sitemap),
 ]

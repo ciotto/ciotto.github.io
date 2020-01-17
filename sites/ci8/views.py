@@ -120,6 +120,47 @@ tags_page = {
     'changefreq': 'monthly',
     'priority': 0.8,
 }
+cookies_policy_page = {
+    'path': 'cookies-policy.html',
+    'lastmod': '2020-01-17',
+    'changefreq': 'yearly',
+    'priority': 0.7,
+    'cookies': {
+        'needed': [
+            {
+
+                'name': 'EU_COOKIE_LAW_CONSENT',
+                'provider': '.ci8.it',
+                'purpose': 'Stores the consent status of the user\'s cookies for the current domain.',
+                'expiration': '1 year',
+            },
+        ],
+        'preferences': [
+        ],
+        'statistics': [
+            {
+                'name': '_ga',
+                'provider': '.ci8.it',
+                'purpose': 'Register a unique ID used to generate statistical data on how the visitor uses the website.',
+                'expiration': '2 years',
+            },
+            {
+                'name': '_gat',
+                'provider': '.ci8.it',
+                'purpose': 'Used by Google Analytics to limit the frequency of requests.',
+                'expiration': '1 day',
+            },
+            {
+                'name': '_gid',
+                'provider': '.ci8.it',
+                'purpose': 'Register a unique ID used to generate statistical data on how the visitor uses the website.',
+                'expiration': '1 day',
+            },
+        ],
+        'marketing': [
+        ],
+    }
+}
 pages = [
     home_page,
     about_me_page,
@@ -216,10 +257,17 @@ def tags(request):
     return render_to_response('ci8/tags.html', ctx, context_instance=RequestContext(request))
 
 
+@staticview(path=cookies_policy_page['path'])
+def cookies_policy(request):
+    ctx = cookies_policy_page
+
+    return render_to_response('cookies/cookies.html', ctx)
+
+
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
-        'pages': pages + [tags_page],
+        'pages': pages + [tags_page, cookies_policy_page],
     }
 
     return render_to_response('ci8/sitemap.xml', ctx, content_type='application/xml')
