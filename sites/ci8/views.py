@@ -38,13 +38,15 @@ def html_from_markdown_url(url, skip_title=1):
 home_page = {
     'title': 'Home',
     'path': 'index.html',
-    'lastmod': '2019-04-18',
+    'date': '2019-04-18',
+    'lastmod': '2020-01-17',
     'changefreq': 'monthly',
     'priority': 1,
 }
 about_me_page = {
     'title': 'About me',
     'path': 'about.html',
+    'date': '2019-04-18',
     'lastmod': '2019-04-18',
     'changefreq': 'monthly',
     'priority': 0.9,
@@ -52,6 +54,7 @@ about_me_page = {
 haier_t32x_page = {
     'title': 'Haier T32X robot',
     'path': 'haier-t32x.html',
+    'date': '2019-04-18',
     'lastmod': '2019-04-18',
     'changefreq': 'monthly',
     'priority': 0.8,
@@ -72,6 +75,7 @@ haier_t32x_page = {
 digipass_go_6_page = {
     'title': 'DIGIPASS GO 6',
     'path': 'digipass-go-6.html',
+    'date': '2019-04-18',
     'lastmod': '2019-04-18',
     'changefreq': 'monthly',
     'priority': 0.8,
@@ -85,7 +89,8 @@ digipass_go_6_page = {
 multiple_choice_test_omr_page = {
     'title': 'Multiple Choice Test OMR',
     'path': 'multiple-choice-test-omr.html',
-    'lastmod': '2019-04-26',
+    'date': '2020-01-17',
+    'lastmod': '2020-01-17',
     'changefreq': 'monthly',
     'priority': 0.8,
     'md': html_from_markdown_url('sites/ci8/multiple_choice_test_omr/README.md'),
@@ -100,6 +105,7 @@ multiple_choice_test_omr_page = {
 mod_wsgi_error_page = {
     'title': 'Apache mod_wsgi/psycopg2 error',
     'path': 'mod-wsgi-error.html',
+    'date': '2019-04-26',
     'lastmod': '2019-04-26',
     'changefreq': 'monthly',
     'priority': 0.8,
@@ -116,12 +122,14 @@ mod_wsgi_error_page = {
 tags_page = {
     'title': 'Tags',
     'path': 'tags.html',
-    'lastmod': '2019-04-26',
+    'date': '2019-04-26',
+    'lastmod': '2020-01-17',
     'changefreq': 'monthly',
     'priority': 0.8,
 }
 cookies_policy_page = {
     'path': 'cookies-policy.html',
+    'date': '2020-01-17',
     'lastmod': '2020-01-17',
     'changefreq': 'yearly',
     'priority': 0.7,
@@ -164,8 +172,6 @@ cookies_policy_page = {
 pages = [
     home_page,
     about_me_page,
-    haier_t32x_page,
-    digipass_go_6_page,
 ]
 
 
@@ -176,6 +182,7 @@ def index(request):
         'title': None,
         'pages': pages,
         'articles': [
+            multiple_choice_test_omr_page,
             haier_t32x_page,
             digipass_go_6_page,
         ]
