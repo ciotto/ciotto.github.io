@@ -1,0 +1,68 @@
+{% extends 'ci8/blog.html' %}
+{% load staticfiles i18n %}
+
+{% block content %}
+{{ block.super }}
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="heading">Cookie Policy for ci8.it</h2>
+
+            <div class="date">
+                <em>Last update {{ lastmod }}</em>
+            </div>
+
+            <p>In order to make this site work properly and for statistical purposes we install very small files on your device that contain data. These files are called "cookies" and are used by most sites.</p>
+
+            <h4>What are cookies used for?</h4>
+            <p>Cookies are mainly used for saving certain actions and preferences (ex. login, language, messages already showed) in order that you don't have to re-enter them on every page.</p>
+
+            <h4>How do we use cookies?</h4>
+            <p>In some pages we use cookies to remember:</p>
+            <ul>
+                <li>if you have already viewed a pop-up, to avoid repeating it</li>
+                <li>if you have authorized the use of cookies on the site.</li>
+            </ul>
+
+            <p>It is not necessary to enable cookies for the site to work, but doing this improves navigation. It is possible to delete or block cookies, however in this case some functions of the site may not work properly.</p>
+
+            {% if cookies.needed %}
+            <h6>Needed ({{ cookies.needed|length }})</h6>
+
+            {% with cookies=cookies.needed %}
+            {% include 'cookies/table.html' %}
+            {% endwith %}
+            {% endif %}
+
+            {% if cookies.preferences %}
+            <h6>Preferences ({{ cookies.preferences|length }})</h6>
+
+            {% with cookies=cookies.preferences %}
+            {% include 'cookies/table.html' %}
+            {% endwith %}
+            {% endif %}
+
+            {% if cookies.statistics %}
+            <h6>Statistics ({{ cookies.statistics|length }})</h6>
+
+            {% with cookies=cookies.statistics %}
+            {% include 'cookies/table.html' %}
+            {% endwith %}
+            {% endif %}
+
+            {% if cookies.marketing %}
+            <h6>Marketing ({{ cookies.marketing|length }})</h6>
+
+            {% with cookies=cookies.marketing %}
+            {% include 'cookies/table.html' %}
+            {% endwith %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<hr>
+
+{% endblock %}
