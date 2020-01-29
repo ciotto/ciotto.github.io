@@ -173,6 +173,11 @@ pages = [
     home_page,
     about_me_page,
 ]
+articles = [
+    multiple_choice_test_omr_page,
+    haier_t32x_page,
+    digipass_go_6_page,
+]
 
 
 @staticview(path=home_page['path'])
@@ -181,11 +186,7 @@ def index(request):
     ctx.update({
         'title': None,
         'pages': pages,
-        'articles': [
-            multiple_choice_test_omr_page,
-            haier_t32x_page,
-            digipass_go_6_page,
-        ]
+        'articles': articles
     })
 
     return render_to_response('ci8/index.html', ctx, context_instance=RequestContext(request))
@@ -274,7 +275,7 @@ def cookies_policy(request):
 @staticview(path='sitemap.xml')
 def sitemap(request):
     ctx = {
-        'pages': pages + [tags_page, cookies_policy_page],
+        'pages': pages + articles + [tags_page, cookies_policy_page],
     }
 
     return render_to_response('ci8/sitemap.xml', ctx, content_type='application/xml')
