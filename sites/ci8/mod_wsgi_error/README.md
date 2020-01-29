@@ -374,7 +374,7 @@ $ ldd /var/www/django/.virtualenv/lib/python2.7/site-packages/psycopg2/_psycopg.
 In order to use this VM you can use Ansible:
  
 ```
-$ wget https://raw.githubusercontent.com/ciotto/boxes/master/mod_wsgi_error/Vagrantfile
+$ wget https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/sites/ci8/mod_wsgi_error/Vagrantfile
 $ vagrant up
 $ vagrant ssh
 ```
@@ -384,6 +384,6 @@ You can generate the error at address [http://192.168.33.10?query](http://192.16
 If you want to login as django user you can do this by the Vagrant key:
 
 ```
-$ wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
+$ wget https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/sites/ci8/mod_wsgi_error/vagrant
 $ ssh -i vagrant django@192.168.33.10
 ```
