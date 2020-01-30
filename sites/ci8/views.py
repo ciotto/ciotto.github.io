@@ -60,7 +60,7 @@ haier_t32x_page = {
     'priority': 0.8,
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/haier-t32x/README.md'),
     'description': 'Reverse engineering the Haier T325 Cleaning Robot.',
-    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/haier_t32x.jpg'),
+    'og_image': 'https://ci8.it%s' % static('/ci8/images/share/haier_t32x.jpg'),
     'tags': [
         ('reversing', 'Reversing'),
         ('stm32', 'STM32'),
@@ -81,7 +81,7 @@ digipass_go_6_page = {
     'priority': 0.8,
     'md': html_from_markdown_url('https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/README.md'),
     'description': 'Reverse engineering the Vasco DIGIPASS GO 6.',
-    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
+    'og_image': 'https://ci8.it%s' % static('/ci8/images/share/digipass_go_6.jpg'),
     'tags': [
         ('reversing', 'Reversing'),
     ]
@@ -95,7 +95,7 @@ multiple_choice_test_omr_page = {
     'priority': 0.8,
     'md': html_from_markdown_url('sites/ci8/multiple_choice_test_omr/README.md'),
     'description': 'Making an OMR for a generic multiple choice test, step by step, using OpenCV and Python.',
-    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/multiple_choice_test_omr.jpg'),
+    'og_image': 'https://ci8.it%s' % static('/ci8/images/share/multiple_choice_test_omr.jpg'),
     'tags': [
         ('omr', 'OMR'),
         ('opencv', 'OpenCV'),
@@ -111,7 +111,7 @@ mod_wsgi_error_page = {
     'priority': 0.8,
     'md': html_from_markdown_url('sites/ci8/mod_wsgi_error/README.md'),
     'description': 'mod_wsgi: Truncated or oversized response headers received from daemon process.',
-    'og_image': 'http://ci8.it%s' % static('/ci8/images/share/mod_wsgi_error.jpg'),
+    'og_image': 'https://ci8.it%s' % static('/ci8/images/share/mod_wsgi_error.jpg'),
     'tags': [
         ('apache', 'Apache'),
         ('wsgi', 'WSGI'),
@@ -247,7 +247,7 @@ def mod_wsgi_error(request):
 @staticview(path=tags_page['path'])
 def tags(request):
     tags = {}
-    for page in pages:
+    for page in articles:
         if 'tags' in page:
             for tag_slug, tag_name in page['tags']:
                 if tag_slug not in tags:
