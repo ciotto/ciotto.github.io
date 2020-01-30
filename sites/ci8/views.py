@@ -247,7 +247,7 @@ def mod_wsgi_error(request):
 @staticview(path=tags_page['path'])
 def tags(request):
     tags = {}
-    for page in pages:
+    for page in articles:
         if 'tags' in page:
             for tag_slug, tag_name in page['tags']:
                 if tag_slug not in tags:
