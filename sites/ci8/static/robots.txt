@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://ci8.it/sitemap.xml
+Sitemap: https://ci8.it/sitemap.xml
