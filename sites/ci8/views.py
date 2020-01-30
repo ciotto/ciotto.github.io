@@ -39,7 +39,7 @@ home_page = {
     'title': 'Home',
     'path': 'index.html',
     'date': '2019-04-18',
-    'lastmod': '2020-01-17',
+    'lastmod': '2020-01-29',
     'changefreq': 'monthly',
     'priority': 1,
 }
@@ -105,8 +105,8 @@ multiple_choice_test_omr_page = {
 mod_wsgi_error_page = {
     'title': 'Apache mod_wsgi/psycopg2 error',
     'path': 'mod-wsgi-error.html',
-    'date': '2019-04-26',
-    'lastmod': '2019-04-26',
+    'date': '2020-01-29',
+    'lastmod': '2020-01-29',
     'changefreq': 'monthly',
     'priority': 0.8,
     'md': html_from_markdown_url('sites/ci8/mod_wsgi_error/README.md'),
@@ -174,6 +174,7 @@ pages = [
     about_me_page,
 ]
 articles = [
+    mod_wsgi_error_page,
     multiple_choice_test_omr_page,
     haier_t32x_page,
     digipass_go_6_page,
