@@ -1,0 +1,24 @@
+{% load i18n staticfiles %}
+
+<!-- Post preview -->
+<div class="post-preview">
+  <a href="{{ p.path }}">
+    <h3 class="post-title">
+      {{ p.title }}
+    </h3>
+    <h4 class="post-subtitle">
+      {{ p.description }}
+    </h4>
+  </a>
+  <p class="post-meta">
+    {% if not hide_category%}
+    {% if p.category %}
+    <a href="categories.html#{{ p.category.slug }}"><i class="{{ p.category.icon }}" data-toggle="tooltip" data-placement="top" title="{{ p.category.name }}"></i></a>
+    {% else %}
+    <i class="fas fa-quote-right" data-toggle="tooltip" data-placement="top" title="Generic"></i>
+    {% endif %}
+    {% endif %}
+    {{ p.date|date:"SHORT_DATE_FORMAT" }}{% if p.lastmod %} (last update {{ p.lastmod|date:"SHORT_DATE_FORMAT" }}){% endif %}
+  </p>
+</div>
+<hr>

@@ -6,15 +6,17 @@
 <div class="container">
 {% if tags %}
 <div class="col-lg-10 mx-auto tags">
+    {% if category %}
+    <a href="categories.html#{{ category.slug }}"><i class="{{ category.icon }} text-secondary"></i></a>
+    {% else %}
     <i class="fa fa-tags text-secondary"></i>
+    {% endif %}
     {% for tag in tags %}<a href="tags.html#{{ tag.0}}">{{ tag.1 }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
 </div>
 {% endif %}
-{% if lastmod %}
 <div class="col-lg-10 mx-auto text-secondary">
-    <em>Last update on {{ lastmod }}</em>
+    <em>{{ author }} - {{ date|date:"SHORT_DATE_FORMAT" }}{% if lastmod %} (last update on {{ lastmod|date:"SHORT_DATE_FORMAT" }}){% endif %}</em>
 </div>
-{% endif %}
 </div>
 {% endblock %}
 

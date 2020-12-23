@@ -1,0 +1,13 @@
+{% load i18n staticfiles %}
+
+<!-- Post line -->
+<div class="post">
+    {% if p.category %}
+    <a href="categories.html#{{ p.category.slug }}"><i class="{{ p.category.icon }} text-secondary"></i></a>
+    {% else %}
+    <i class="fas fa-quote-right text-secondary"></i>
+    {% endif %}
+    <a href="{{ p.path }}">
+        <span class="post-meta text-secondary">{% if p.lastmod %}{{ p.lastmod|date:"SHORT_DATE_FORMAT" }}{% else %}{{ p.date|date:"SHORT_DATE_FORMAT" }}{% endif %}</span> - <span class="post-title font-weight-bold">{{ p.title }}</span>
+    </a>
+</div>

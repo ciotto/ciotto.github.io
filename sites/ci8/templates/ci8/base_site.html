@@ -93,7 +93,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 {% for p in pages %}<li class="nav-item">
-                    <a class="nav-link"  href="{{ p.path }}">{{ p.title }}</a>
+                    <a class="nav-link"  href="{{ p.path }}">{{ p.name }}</a>
                 </li>{% endfor %}
             </ul>
         </div>
@@ -157,6 +157,11 @@
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'ci8/js/jquery-eu-cookie-law-popup.js' %}"></script>
+<script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 <!-- Custom scripts for this template -->
 <script src="{% static 'ci8/js/clean-blog.min.js' %}"></script>

@@ -113,4 +113,22 @@ body {
 .eupopup-button:hover, .eupopup-button:focus {
     color: #fff;
 }
+.article .fab {
 
+    font-size: 30px;
+}
+
+#categories .post-category {
+    padding-left: 15px;
+}
+#categories .post, #categories .post-preview, #tags .post {
+    padding-left: 15px;
+}
+#categories .post-preview>a>.post-title {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#categories .post-preview>.post-meta {
+    margin-bottom: 0;
+}

@@ -1,0 +1,17 @@
+{% extends 'ci8/blog.html' %}
+{% load i18n staticfiles %}
+
+{% block content %}
+{{ block.super }}
+
+<!-- Main Content -->
+<div id="categories" class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {% for c in categories %}{% include 'ci8/parts/category_line.html' %}{% endfor %}
+        </div>
+    </div>
+</div>
+
+<hr>
+{% endblock %}

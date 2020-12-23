@@ -1,0 +1,13 @@
+{% load i18n staticfiles %}
+
+<!-- Main Content -->
+<div id="{{ c.slug }}" class="post-category">
+    <h2 class="post-title">
+      <i class="{{ c.icon }} text-secondary" data-toggle="tooltip" data-placement="top" title="{{ c.name }}"></i> {{ c.name }}
+    </h2>
+
+    {% for c in c.children %}{% include 'ci8/parts/category_line.html' %}{% endfor %}
+
+    {% for p in c.pages %}{% with hide_category=True %}{% include 'ci8/parts/post_preview.html' %}{% endwith %}{% endfor %}
+</div>
+<hr>

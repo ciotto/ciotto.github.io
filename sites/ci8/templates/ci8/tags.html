@@ -5,20 +5,10 @@
 {{ block.super }}
 
 <!-- Main Content -->
-<div class="container">
+<div id="tags" class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            {% for key, t in tags.items %}<div id="{{ t.slug }}" class="post-tag">
-            <h2 class="post-title">
-              {{ t.name }}
-            </h2>
-            {% for p in t.pages %}<div>
-            <a href="{{ p.path }}">
-                <span class="post-meta text-secondary">{{ p.lastmod }}</span> - <span class="post-title font-weight-bold">{{ p.title }}</span>
-            </a>
-            </div>{% endfor %}
-            </div>
-            <hr>{% endfor %}
+            {% for key, t in tags.items %}{% include 'ci8/parts/tag_line.html' %}{% endfor %}
         </div>
     </div>
 </div>

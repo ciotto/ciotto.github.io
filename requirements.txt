@@ -1,4 +1,5 @@
 django-environ==0.4.0
-https://github.com/ciotto/django-static-sites/archive/v0.0.7.zip
+django-static-sites==0.0.8
 django-storages==1.4
 markdown2==2.3.7
+requests==2.25.1
