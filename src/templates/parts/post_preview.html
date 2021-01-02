@@ -9,6 +9,8 @@
     </h4>
   </a>
   <p class="post-meta">
+    {% for l in p.localized_pages %}<a href="{{ l.path }}"><img src="images/icons/{{ l.locale }}.svg" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ l.lang }}"></a>
+    {% endfor %}
     {% if not hide_category%}
     {% if p.category %}
     <a href="categories.html#{{ p.category.slug }}">

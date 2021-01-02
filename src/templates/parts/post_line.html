@@ -1,5 +1,7 @@
 <!-- Post line -->
 <div class="post">
+    {% for l in p.localized_pages %}<a href="{{ l.path }}"><img src="images/icons/{{ l.locale }}.svg" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ l.lang }}"></a>
+    {% endfor %}
     {% if p.category %}
     <a href="categories.html#{{ p.category.slug }}">
       {% if p.category.icon_svg %}<img src="{{ p.category.icon_svg }}" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ p.category.name }}">

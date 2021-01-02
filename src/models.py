@@ -1,5 +1,7 @@
 from datetime import date
 
+from utilities import lang_to_locale
+
 
 class Category:
     def __init__(self, **entries):
@@ -45,18 +47,19 @@ class Page:
     og_image = 'https://ci8.it/images/share/ci8.jpg'
     robots = 'index, follow'
 
-    localized_pages = None
+    _localized_pages = None
     _localized_dict = None
 
-    def __init__(self, **entries):
+    def __init__(self, localized_pages=None, **entries):
         self.__dict__.update(entries)
 
-        self.localized_pages = self.localized_pages or []
+        self._localized_pages = localized_pages
         self._localized_dict = self._localized_dict or {}
 
     def __getattribute__(self, item):
         if item not in [
             'localized_pages',
+            '_localized_pages',
             'localized_page',
             'localized_dict',
             '_localized_dict',
@@ -83,30 +86,60 @@ class Page:
 
     @property
     def languages(self):
-        if not self.localized_pages:
+        if not self._localized_pages:
             return [self.lang]
-        return [l.lang for l in self.localized_pages]
+        return [l.lang for l in self._localized_pages]
 
     @property
     def alt_languages(self):
         return [l for l in self.languages if l != self.lang]
+
+    @property
+    def locales(self):
+        if not self._localized_pages:
+            return [self.locale]
+        return [l.locale for l in self._localized_pages]
+
+    @property
+    def alt_locales(self):
+        return [l for l in self.locales if l != self.locale]
 
     def localize(self, lang):
         self.lang = lang
         return self
 
     @property
+    def localized_pages(self):
+        if self._localized_pages:
+            lang = self.lang
+            for l in self._localized_pages:
+                self.localize(l.lang)
+                yield self
+            self.localize(lang)
+        else:
+            yield self
+
+    @property
+    def alt_localized_pages(self):
+        if self._localized_pages:
+            lang = self.lang
+            for l in self._localized_pages:
+                if l.lang != lang:
+                    self.localize(l.lang)
+                    yield self
+            self.localize(lang)
+
+    @property
     def localized_page(self):
-        for l in self.localized_pages:
-            if l.lang == self.lang:
-                return l
+        if self._localized_pages:
+            for l in self._localized_pages:
+                if l.lang == self.lang:
+                    return l
         return None
 
     @property
     def locale(self):
-        if self.lang.lower() == 'en':
-            return 'en_GB'
-        return '%s_%s' % (self.lang.lower(), self.lang.upper())
+        return lang_to_locale(self.lang)
 
     @property
     def name(self):
@@ -125,4 +158,7 @@ class Page:
         if 'template' in self.localized_dict:
             return self.localized_dict['template']
         return '%s.html' % self.slug
+
+    def __str__(self):
+        return str(self.title or self.name)
 

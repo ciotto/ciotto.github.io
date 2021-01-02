@@ -14,6 +14,8 @@
 <div class="container">
 {% if page.tags or page.category %}
 <div class="col-lg-10 mx-auto tags">
+    {% for l in page.localized_pages %}<a href="{{ l.path }}"><img src="images/icons/{{ l.locale }}.svg" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ l.lang }}"></a>
+    {% endfor %}
     {% if page.category %}
     <a href="categories.html#{{ page.category.slug }}">
       {% if page.category.icon_svg %}<img src="{{ page.category.icon_svg }}" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ page.category.name }}">

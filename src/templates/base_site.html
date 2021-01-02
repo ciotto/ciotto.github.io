@@ -31,7 +31,8 @@
     <meta property="og:image:height" content="630" />
 
     <meta property="og:locale" content="{{ page.locale }}" />
-    {% for alt in page.alt_languages %}<meta property="og:locale:alternate" content="{{ alt.locale }}" />{% endfor %}
+    {% for alt in page.alt_localized_pages %}<meta property="og:locale:alternate" content="{{ alt.locale }}" />
+    {% endfor %}
 
     <!-- OpenGraph -->
 
