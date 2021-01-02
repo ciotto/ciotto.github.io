@@ -1,0 +1,9 @@
+<!-- Main Content -->
+<div id="{{ t.slug }}" class="post-tag">
+    <h2 class="post-title">
+      {{ t.name }}
+    </h2>
+
+    {% for p in t.pages %}{% include 'parts/post_line.html' %}{% endfor %}
+</div>
+<hr>

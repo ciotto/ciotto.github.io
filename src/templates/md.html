@@ -1,0 +1,21 @@
+{% extends 'post.html' %}
+
+{% block header_classes %} dark{% endblock %}
+
+
+{% block content_title %}
+<div class="container title">
+    <div class="col-lg-10 mx-auto">
+        <h1>{{ page.title }}</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container md">
+    <div class="col-lg-10 mx-auto">
+        {{ page.md|safe }}
+    </div>
+</div>
+{% endblock %}

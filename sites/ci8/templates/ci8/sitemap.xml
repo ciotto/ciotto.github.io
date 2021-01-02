@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% for page in pages %}<url>
-    <loc>https://ci8.it/{{ page.path }}</loc>
-    <lastmod>{% if page.lastmod %}{{ page.lastmod|date:'Y-m-d' }}{% else %}{{ page.date|date:'Y-m-d' }}{% endif %}</lastmod>
-    <changefreq>{{ page.changefreq }}</changefreq>
-    <priority>{{ page.priority }}</priority>
-  </url>{% endfor %}
-</urlset>

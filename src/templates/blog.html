@@ -1,0 +1,24 @@
+{% extends 'base_site.html' %}
+
+{% block title %}The Crocs Options{% if page.title %} - {{ page.title }}{% endif %}{% endblock %}
+
+{% block extra_logo %}<span>The Crocs Options</span>{% endblock %}
+
+{% block content %}
+{% block content_title %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('images/background1.jpg')">
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="page-heading">
+        <h1>The Crocs Options{% if page.title %} - {{ page.title }}{% endif %}</h1>
+        <span class="subheading">{{ page.description }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+{% endblock %}
+{% endblock %}
