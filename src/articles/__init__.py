@@ -83,9 +83,11 @@ articles = [
     multiple_choice_test_omr_page,
     haier_t32x_page,
     digipass_go_6_page,
+    intro_to_arduino_page,
 ]
 articles = sorted(articles, reverse=True, key=lambda a: a.date)
 last_articles = articles[:2]
 
 series = [
+    intro_to_arduino_page,
 ]
