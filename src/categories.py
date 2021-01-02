@@ -18,12 +18,16 @@ boards = Category(
     parent=electronics,
     slug='boards',
     name='Boards',
+    icon=None,
+    icon_svg='images/icons/board.svg',
     page=None,
 )
 arduino = Category(
     parent=boards,
     slug='arduino',
     name='Arduino',
+    icon=None,
+    icon_svg='images/icons/arduino.svg',
     page=None,
 )
 coding = Category(

@@ -15,7 +15,10 @@
 {% if page.tags or page.category %}
 <div class="col-lg-10 mx-auto tags">
     {% if page.category %}
-    <a href="categories.html#{{ page.category.slug }}"><i class="{{ page.category.icon }} text-secondary"></i></a>
+    <a href="categories.html#{{ page.category.slug }}">
+      {% if page.category.icon_svg %}<img src="{{ page.category.icon_svg }}" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ page.category.name }}">
+      {% else %}<i class="{{ page.category.icon }} text-secondary" data-toggle="tooltip" data-placement="top" title="{{ page.category.name }}"></i>{% endif %}
+    </a>
     {% else %}
     <i class="fa fa-tags text-secondary"></i>
     {% endif %}

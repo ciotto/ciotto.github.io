@@ -132,3 +132,8 @@ body {
 #categories .post-preview>.post-meta {
     margin-bottom: 0;
 }
+
+img.svg-icon {
+    width: 1em;
+}
+

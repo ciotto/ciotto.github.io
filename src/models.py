@@ -8,6 +8,7 @@ class Category:
             'slug': None,
             'name': None,
             'icon': 'fas fa-quote-right',
+            'icon_svg': None,
             'page': None,
         })
         self.__dict__.update(entries)
