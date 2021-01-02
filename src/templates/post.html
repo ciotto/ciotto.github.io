@@ -1,0 +1,54 @@
+{% extends 'blog.html' %}
+
+{% block og_type %}
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{ page.date.strftime('%Y-%m-%dT%H:%M:%S') }}">
+    <meta property="article:modified_time" content="{% if page.lastmod %}{{ page.lastmod.strftime('%Y-%m-%dT%H:%M:%S') }}{% else %}{{ page.date.strftime('%Y-%m-%dT%H:%M:%S') }}{% endif %}">
+    <meta property="article:section" content="{{ page.category.name}}">
+    {% for tag in page.tags %}<meta property="article:tag" content="{{ tag.1 }}">
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container">
+{% if page.tags or page.category %}
+<div class="col-lg-10 mx-auto tags">
+    {% if page.category %}
+    <a href="categories.html#{{ page.category.slug }}"><i class="{{ page.category.icon }} text-secondary"></i></a>
+    {% else %}
+    <i class="fa fa-tags text-secondary"></i>
+    {% endif %}
+    {% for tag in page.tags %}<a href="tags.html#{{ tag.0}}">{{ tag.1 }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+</div>
+{% endif %}
+<div class="col-lg-10 mx-auto text-secondary">
+    <em>{{ page.author }} - {{ page.date }}{% if page.lastmod %} (last update on {{ page.lastmod }}){% endif %}</em>
+</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="disqus_thread" class="col-lg-8 col-md-10 mx-auto"></div>
+{{ super() }}
+{% endblock %}
+
+{% block extra_footer_script %}
+{% if not disable_comments %}
+<script>
+var disqus_config = function () {
+  this.page.url = 'https://ci8.it/{{ page.path }}';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '{{ page.path }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  this.language = '{{ page.lang }}';
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://ci8.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+{% endblock %}

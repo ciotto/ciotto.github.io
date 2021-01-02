@@ -1,0 +1,29 @@
+{% extends 'blog.html' %}
+
+{% block content %}
+{{ super() }}
+
+<!-- Main Content -->
+<div class="container">
+    {% if series %}
+    <div class="row">
+        <h2>Series/Tutorials</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto article">
+            {% for p in series %}{% with show_serie=True %}{% include 'parts/post_preview.html' %}{% endwith %}{% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <h2>Last articles</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto article">
+            {% for p in page.articles %}{% include 'parts/post_preview.html' %}{% endfor %}
+        </div>
+    </div>
+</div>
+
+<hr>
+{% endblock %}

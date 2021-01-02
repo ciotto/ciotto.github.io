@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for p in page.pages %}{% for l in p.languages %}<url>
+    <loc>https://ci8.it/{{ p.localize(l).path }}</loc>
+    <lastmod>{% if p.localize(l).lastmod %}{{ p.localize(l).lastmod.strftime('%Y-%m-%dT%H:%M:%S') }}{% else %}{{ p.localize(l).date.strftime('%Y-%m-%dT%H:%M:%S') }}{% endif %}</lastmod>
+    <changefreq>{{ p.localize(l).changefreq }}</changefreq>
+    <priority>{{ p.localize(l).priority }}</priority>
+  </url>{% endfor %}{% endfor %}
+</urlset>

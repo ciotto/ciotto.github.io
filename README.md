@@ -25,8 +25,15 @@ Welcome to the ci8.it development environment.
 ci8.it>
 ```
 
-For update the static files use:
+For site generation use:
 
 ```
-ci8.it> m deploy prod_pages
+ci8.it> python src/make.py
+```
+
+For local test use:
+
+```
+ci8.it> cd docs
+ci8.it> python3 -m http.server
 ```

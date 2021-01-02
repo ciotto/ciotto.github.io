@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="/images/apple152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/images/mstile144.png">
+    <link rel="icon" href="/images/favicon32.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#E53935">
+
+    <title>The Crocs Options - Introduzione ad Arduino</title>
+
+    
+
+    <!-- OpenGraph -->
+    <meta property="og:site_name" content="The Crocs Options">
+    <meta property="og:url" content="https://ci8.it/introduzione-ad-arduino.html"/>
+    <meta property="og:title" content="Introduzione ad Arduino"/>
+    <meta property="og:description" content="Capiamo le basi di come funziona Arduino e i motivi per cui è così diffuso."/>
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-12-23T00:00:00">
+    <meta property="article:modified_time" content="2020-12-23T00:00:00">
+    <meta property="article:section" content="Arduino">
+    <meta property="article:tag" content="Arduino">
+    <meta property="article:tag" content="Arduino IDE">
+    <meta property="article:tag" content="Arduino bootloader">
+    
+
+
+    <meta property="og:image" content="https://ci8.it/images/share/arduino-uno.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta property="og:locale" content="it_IT" />
+    
+
+    <!-- OpenGraph -->
+
+    <!-- Facebook -->
+    <meta property="fb:app_id" content="1397207160419791">
+    <!-- Facebook -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ciotto87">
+    <meta name="twitter:creator" content="@ciotto87">
+    <meta name="twitter:url" content="https://ci8.it/introduzione-ad-arduino.html">
+    <meta name="twitter:title" content="Introduzione ad Arduino">
+    <meta name="twitter:image" content="https://ci8.it/images/share/arduino-uno.jpg">
+    <meta name="twitter:description" content="Capiamo le basi di come funziona Arduino e i motivi per cui è così diffuso.">
+    <!-- Twitter -->
+
+    <!-- SEO -->
+    <link rel="canonical" href="https://ci8.it/introduzione-ad-arduino.html" />
+
+    <meta name="description" content="Capiamo le basi di come funziona Arduino e i motivi per cui è così diffuso.">
+
+    <meta name="robots" content="introduzione-ad-arduino.html" />
+    <!-- SEO -->
+    
+
+    <!-- CSS  -->
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/jquery-eu-cookie-law-popup.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top dark" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><img src="/images/logo.png" alt="C8 Logo"><span>The Crocs Options</span></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link"  href="/index.html">Home</a>
+                </li><li class="nav-item">
+                    <a class="nav-link"  href="/categories.html">Articles</a>
+                </li><li class="nav-item">
+                    <a class="nav-link"  href="/about.html">About me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+<div class="container title">
+    <div class="col-lg-10 mx-auto">
+        <h1>Introduzione ad Arduino</h1>
+    </div>
+</div>
+
+
+<div class="container">
+
+<div class="col-lg-10 mx-auto tags">
+    
+    <a href="categories.html#arduino"><i class="fas fa-quote-right text-secondary"></i></a>
+    
+    <a href="tags.html#arduino">Arduino</a>, <a href="tags.html#arduino-ide">Arduino IDE</a>, <a href="tags.html#arduino-bootloader">Arduino bootloader</a>
+</div>
+
+<div class="col-lg-10 mx-auto text-secondary">
+    <em>Christian Bianciotto - 2020-12-23</em>
+</div>
+</div>
+
+<div class="container md">
+    <div class="col-lg-10 mx-auto">
+        <p><strong>Arduino</strong> è un progetto che racchiude svariate scheda open-source per la prototipazione che sono basate su microcontrollori <a href="https://it.wikipedia.org/wiki/Atmel_AVR">Atmel AVR</a> a 8 bit.</p>
+
+<p>La più conosciuta ed iconica è la scheda <a href="https://store.arduino.cc/arduino-uno-rev3">Arduino Uno</a> che è composta da un microcontrollore <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">ATmega328P</a> rimovibile in package <a href="https://it.wikipedia.org/wiki/Dual_in-line_package">DIP</a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/boards/arduino/images/arduino-uno-r3.jpg" alt="Arduino Uno r3" /></p>
+
+<p>Il progetto Arduino nasce ad Ivrea (Italia) nel 2005, la grande diffusione di queste schede è dovuta all'estrema semplicità che le caratterizza e che permette di creare i propri progetti in pochi passi; questa semplicità è data dal bootloader, dall'IDE e dalle caratteristiche della scheda, come l'interfaccia USB, i regolatori di tensione da 3.3V e 5.0V, gli header di espansione e il jack di alimentazione.</p>
+
+<h3>Arduino IDE</h3>
+
+<p><a href="https://www.arduino.cc/en/main/OldSoftwareReleases">Arduino IDE</a> è l'integrated development environment ufficiale di Arduino, ovvero il software integrato per lo sviluppo. Sebbene non sia indispensabile per interfacciarsi con la scheda, semplifica molto l'esperienza con Arduino grazie a un'interfaccia semplice ed intuitiva che integra tutte le componenti necessarie.</p>
+
+<h3>Arduino Bootloader</h3>
+
+<p>Il bootloader è il vero cuore di Arduino, grazie al quale gli utenti possono caricare i loro programmi sulla memoria dell'AVR semplicemente collegandosi alla porta USB posizionata sulle schede Arduino.</p>
+
+<p>Essendo il bootloader un programma preinstallato nella memoria del microcontrollore, occupa spazio; per questo Arduino permette, usando un ISP programmer esterno, di caricare in memoria programmi utilizzando l'intero spazio disponibile; con la stessa tecnica e anche possibile caricare il bootloader su un AVR dal quale era stato cancellato.</p>
+
+<h3>Arduino Shields</h3>
+
+<p>Sullo <a href="https://store.arduino.cc/">store ufficiale</a> e su vari portali, oltre alle schede Arduino sono presenti molti shield, ovvero moduli di espansione che permettono di aggiungere nuove funzionalità tramite gli appositi header.</p>
+
+<h3>Arduino Community</h3>
+
+<p>L'enorme community che si è creata attorno al progetto Arduino è l'elemento che completa l'ecosistema.</p>
+
+<p>Sul <a href="https://forum.arduino.cc/index.php">forum Arduino</a>, e non solo, è possibile trovare l'aiuto degli utenti e molti progetti, da quelli più semplici per imparare l'elettronica a quelli più elaborati di domotica, robotica e automazione.</p>
+
+<h3>Starter Kit</h3>
+
+<p>Per fare i primi esperimenti con Arduino spesso è necessario reperire alcuni elementi aggiuntivi, come: <em>LED</em>, <em>resistenze</em>, <em>condensatori</em>, <em>potenziometri</em>, <em>motori</em> e <em>servomotori</em>.
+Reperire tutti questi componenti può essere complicato, per questo sullo store Arduino, e su altri store, sono disponibili diversi kit che contengono tutto il necessario per sperimentarsi fin da subito a realizare piccoli circuiti.</p>
+
+<h3>Schede Standard</h3>
+
+<p>Ci sono svariate versioni di Arduino a seconda del progetto e dello scopo per cui le si vuole utilizzare:</p>
+
+<div class="table-responsive"><table>
+<thead>
+<tr>
+  <th>Scheda</th>
+  <th>Microcontrollore</th>
+  <th>Porta</th>
+  <th>Velocità clock</th>
+  <th>Digital input/output</th>
+  <th>Voltaggio</th>
+  <th>Altro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-uno-rev3">Arduino Uno</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">ATmega328P</a></td>
+  <td>USB Type-B</td>
+  <td>16 MHz</td>
+  <td>14</td>
+  <td>5.0V</td>
+  <td>UART, ISP, SPI, I2C</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-leonardo-with-headers">Arduino Leonardo</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7766-8-bit-AVR-ATmega16U4-32U4_Datasheet.pdf">ATmega32U4</a></td>
+  <td>Micro USB</td>
+  <td>16 MHz</td>
+  <td>20</td>
+  <td>5.0V</td>
+  <td>UART, ISP, SPI, I2C</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-mega-2560-rev3">Arduino Mega 2560</a></td>
+  <td><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf">ATmega2560</a></td>
+  <td>USB Type-B</td>
+  <td>16 MHz</td>
+  <td>54</td>
+  <td>5.0V</td>
+  <td>4 UART, ISP, SPI, I2C</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-nano-every">Arduino Nano Every</a></td>
+  <td><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-4809-Data-Sheet-DS40002173A.pdf">ATMega4809</a></td>
+  <td>Micro USB</td>
+  <td>20MHz</td>
+  <td>14</td>
+  <td>5.0V</td>
+  <td>UART, SPI, I2C</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-micro">Arduino Micro</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7766-8-bit-AVR-ATmega16U4-32U4_Datasheet.pdf">ATmega32U4</a></td>
+  <td>Micro USB</td>
+  <td>16 MHz</td>
+  <td>20</td>
+  <td>5.0V</td>
+  <td>UART, ISP, SPI, I2C</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>Arduino Uno</strong> è la scheda ideale per iniziare, ha un <em>costo contenuto</em> ed è possibile sostituire il microcontrollore in caso di problemi.</p>
+
+<p><strong>Arduino Mega 2560</strong> è l'ideale per progetti che necessitano di <em>molti input/output</em>.</p>
+
+<p><strong>Arduino Nano Every</strong> e <strong>Arduino Micro</strong> permettono di realizzare progetti compatti grazie alle loro <em>dimensioni ridotte</em>.</p>
+
+<h3>Schede Avanzate</h3>
+
+<p>Oltre a quelle standard negli anni sono nate svariate board che aggiungono altre funzionalità (WiFi, Bluetooth, ecc), aumentano le prestazioni o permettono di sperimentare con nuove piattaforme.</p>
+
+<p>Qui sotto ne elencherò alcune:</p>
+
+<div class="table-responsive"><table>
+<thead>
+<tr>
+  <th>Scheda</th>
+  <th>Microcontrollore</th>
+  <th>Porta</th>
+  <th>Velocità clock</th>
+  <th>Digital input/output</th>
+  <th>Voltaggio</th>
+  <th>Altro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-uno-wifi-rev2">Arduino UNO WiFi</a></td>
+  <td><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-4809-Data-Sheet-DS40002173A.pdf">ATmega4809</a></td>
+  <td>USB Type-B</td>
+  <td>16 MHz</td>
+  <td>14</td>
+  <td>5.0V</td>
+  <td>UART, SPI, I2C, WiFi, BLE, IMU</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-due">Arduino Due</a></td>
+  <td><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-11057-32-bit-Cortex-M3-Microcontroller-SAM3X-SAM3A_Datasheet.pdf">Atmel SAM3X8E ARM Cortex-M3</a></td>
+  <td>Micro USB</td>
+  <td>84 MHz</td>
+  <td>54</td>
+  <td>3.3V</td>
+  <td>4 UART, SPI, I2C, USB OTG, 2 TWI, JTAG</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-nano-33-ble">Arduino Nano 33 BLE</a></td>
+  <td><a href="https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.1.pdf">nRF52840 ARM Cortex-M4</a></td>
+  <td>Micro USB</td>
+  <td>64MHz</td>
+  <td>14</td>
+  <td>3.3V</td>
+  <td>UART, SPI, I2C, BLE, IMU</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-nano-33-iot">Arduino Nano 33 IoT</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf">SAMD21 ARM Cortex-M0</a></td>
+  <td>Micro USB</td>
+  <td>48MHz</td>
+  <td>14</td>
+  <td>3.3V</td>
+  <td>UART, SPI, I2C, WiFi, BLE, IMU</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-zero">Arduino Zero</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf">SAMD21 ARM Cortex-M0</a></td>
+  <td>Micro USB</td>
+  <td>48 MHz</td>
+  <td>20</td>
+  <td>3.3V</td>
+  <td>2 UART, SPI, I2C, EDBG</td>
+</tr>
+<tr>
+  <td><a href="https://store.arduino.cc/arduino-yun-rev-2">Arduino Yún</a></td>
+  <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7766-8-bit-AVR-ATmega16U4-32U4_Datasheet.pdf">ATmega32U4</a> / <a href="https://www.openhacks.com/uploadsproductos/ar9331_datasheet.pdf">Atheros AR9331</a></td>
+  <td>Micro USB</td>
+  <td>16MHz / 400 MHz</td>
+  <td>20</td>
+  <td>5.0V / 3.3V</td>
+  <td>UART, ISP, SPI, I2C / Linux, Ethernet, Micro-SD, USB 2.0 host</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Infine, la serie di schede <strong>Arduino MKR</strong> rispondono ad ulteriori esigenze specifiche (<em>FPGA</em>, <em>Narrowband</em>, <em>LoRa</em>, <em>GSM</em>, <em>Sigfox</em>, ecc).</p>
+
+<h3>Schede Compatibili o Fatte in Casa</h3>
+
+<p>Essendo Arduino un progetto open-source, esistono diverse <strong>schede clone</strong> o <strong>varianti</strong> delle originali a prezzi estremamente competitivi.</p>
+
+<p>La scheda <a href="https://it.aliexpress.com/item/1005001555301794.html">Acelex Uno r3</a> vi permette di iniziare a sviluppare con Arduino spendendo meno di 3€;
+a differenza di Arduino Uno r3, utilizza una porta micro USB e un più economico chip <a href="https://cdn.sparkfun.com/datasheets/Dev/Arduino/Other/CH340DS1.PDF">CH340G</a> come interfaccia USB to serial.</p>
+
+<p>Esistono <a href="https://it.aliexpress.com/item/33013146682.html">varianti di Arduino Nano</a> basate su CH340G e ATmega328P che sono reperibili a poco più di 1.5€.</p>
+
+<p>Una delle varianti più famose è la scheda <a href="https://it.aliexpress.com/item/1005001621511978.html">Node MCU</a> che è basata sul modulo WiFi e BLE <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">ESP8266</a>.</p>
+
+<p>Se sei interessato ad Arduino probabilmente ti piace sperimentare e costruire; realizzare una versione personalizzata di Arduino non è difficile, vedremo più avanti quali sono le componenti dell'originale e come realizzarne una partendo da una MCU.</p>
+
+    </div>
+</div>
+
+
+
+<div id="disqus_thread" class="col-lg-8 col-md-10 mx-auto"></div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/christian-bianciotto-b797a240" target="_blank">
+                            <span class="fa-stack fa-lg">
+                              <i class="fas fa-circle fa-stack-2x"></i>
+                              <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ciotto" target="_blank">
+                            <span class="fa-stack fa-lg">
+                              <i class="fas fa-circle fa-stack-2x"></i>
+                              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/ciotto87" target="_blank">
+                            <span class="fa-stack fa-lg">
+                              <i class="fas fa-circle fa-stack-2x"></i>
+                              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="mailto:mail@ci8.it" target="_blank">
+                            <span class="fa-stack fa-lg">
+                              <i class="fas fa-circle fa-stack-2x"></i>
+                              <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; ci8.it 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!--  Scripts-->
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery-eu-cookie-law-popup.js"></script>
+<script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+<!-- Custom scripts for this template -->
+<script src="/js/clean-blog.min.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-73152077-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+<script>
+var disqus_config = function () {
+  this.page.url = 'https://ci8.it/introduzione-ad-arduino.html';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = 'introduzione-ad-arduino.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  this.language = 'it';
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://ci8.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</body>
+</html>
