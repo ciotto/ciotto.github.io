@@ -97,6 +97,13 @@ cookies_policy_page = Page(
         ],
     }
 )
+codicini_page = Page(
+    slug='codicini',
+    template='codicini.html',
+    date=date(2021, 1, 11),
+    changefreq='yearly',
+    priority=0.8,
+)
 
 pages = [
     home_page,
@@ -104,7 +111,7 @@ pages = [
     about_me_page,
 ]
 
-all_pages = pages + articles + [tags_page, cookies_policy_page, electronics_glossary_page]
+all_pages = pages + articles + [tags_page, cookies_policy_page, electronics_glossary_page, codicini_page]
 
 sitemap_page = Page(
     slug='sitemap',
