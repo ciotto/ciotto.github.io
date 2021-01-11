@@ -25,9 +25,8 @@ def render_page(page):
 
 def main():
     for page in all_pages + [sitemap_page]:
-        for language in page.languages:
-            page.localize(language)
-            render_page(page)
+        for localized_page in page.localized_pages:
+            render_page(localized_page)
 
 
 if __name__ == '__main__':

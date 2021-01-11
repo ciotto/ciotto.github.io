@@ -32,3 +32,9 @@ def html_from_markdown_url(url, skip_title=1):
     content = content.replace('<table>', '<div class="table-responsive"><table>')
     content = content.replace('</table>', '</table></div>')
     return content
+
+
+def lang_to_locale(lang):
+    if lang.lower() == 'en':
+        return 'en_GB'
+    return '%s_%s' % (lang.lower(), lang.upper())

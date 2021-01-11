@@ -9,11 +9,16 @@
     </h4>
   </a>
   <p class="post-meta">
+    {% for l in p.localized_pages %}<a href="{{ l.path }}"><img src="images/icons/{{ l.locale }}.svg" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ l.lang }}"></a>
+    {% endfor %}
     {% if not hide_category%}
     {% if p.category %}
-    <a href="categories.html#{{ p.category.slug }}"><i class="{{ p.category.icon }}" data-toggle="tooltip" data-placement="top" title="{{ p.category.name }}"></i></a>
+    <a href="categories.html#{{ p.category.slug }}">
+      {% if p.category.icon_svg %}<img src="{{ p.category.icon_svg }}" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ p.category.name }}">
+      {% else %}<i class="{{ p.category.icon }} text-secondary" data-toggle="tooltip" data-placement="top" title="{{ p.category.name }}"></i>{% endif %}
+    </a>
     {% else %}
-    <i class="fas fa-quote-right" data-toggle="tooltip" data-placement="top" title="Generic"></i>
+    <i class="fas fa-quote-right text-secondary" data-toggle="tooltip" data-placement="top" title="Generic"></i>
     {% endif %}
     {% endif %}
     {{ p.date }}{% if p.lastmod %} (last update {{ p.lastmod }}){% endif %}

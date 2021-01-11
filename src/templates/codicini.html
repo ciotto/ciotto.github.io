@@ -1,0 +1,24 @@
+{% extends 'blog.html' %}
+
+{% block header_classes %} dark{% endblock %}
+
+{% block content_title %}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container codicini"><a class="btn btn-primary" href="#" role="button">Cliccami!</a></div>
+{% endblock %}
+
+{% block extra_footer_script %}
+<script>
+    $(function () {
+      var messages = ["Cliccami!", "Aggiungi codicini!", "Nuova funzione!", "Se mi clicchi faccio cose!", "Awesome!", "Nice!", "Unicorni!", "AUAUA!"];
+
+      $('.codicini').delegate('.btn', 'click', function () {
+        var msg = messages[Math.floor(Math.random() * messages.length)];
+        $('.codicini').append($('<a class="btn btn-primary" href="#" role="button">' + msg + '</a>'));
+      });
+    })
+</script>
+{% endblock %}

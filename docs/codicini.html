@@ -12,26 +12,20 @@
     <!--  Android 5 Chrome Color-->
     <meta name="theme-color" content="#E53935">
 
-    <title>The Crocs Options - DIGIPASS GO 6</title>
+    <title>The Crocs Options</title>
 
     
 
     <!-- OpenGraph -->
     <meta property="og:site_name" content="The Crocs Options">
-    <meta property="og:url" content="https://ci8.it/digipass-go-6.html"/>
-    <meta property="og:title" content="DIGIPASS GO 6"/>
-    <meta property="og:description" content="Reverse engineering the Vasco DIGIPASS GO 6."/>
+    <meta property="og:url" content="https://ci8.it/codicini.html"/>
+    <meta property="og:title" content="The Crocs Options"/>
+    <meta property="og:description" content="Something about all."/>
     
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2019-04-18T00:00:00">
-    <meta property="article:modified_time" content="2019-04-18T00:00:00">
-    <meta property="article:section" content="Teardowns">
-    <meta property="article:tag" content="Teardown">
-    <meta property="article:tag" content="Reversing">
+    <meta property="og:type" content="website">
     
 
-
-    <meta property="og:image" content="https://ci8.it/images/share/digipass_go_6.jpg"/>
+    <meta property="og:image" content="https://ci8.it/images/share/ci8.jpg"/>
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -49,18 +43,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@ciotto87">
     <meta name="twitter:creator" content="@ciotto87">
-    <meta name="twitter:url" content="https://ci8.it/digipass-go-6.html">
-    <meta name="twitter:title" content="DIGIPASS GO 6">
-    <meta name="twitter:image" content="https://ci8.it/images/share/digipass_go_6.jpg">
-    <meta name="twitter:description" content="Reverse engineering the Vasco DIGIPASS GO 6.">
+    <meta name="twitter:url" content="https://ci8.it/codicini.html">
+    <meta name="twitter:title" content="The Crocs Options">
+    <meta name="twitter:image" content="https://ci8.it/images/share/ci8.jpg">
+    <meta name="twitter:description" content="Something about all.">
     <!-- Twitter -->
 
     <!-- SEO -->
-    <link rel="canonical" href="https://ci8.it/digipass-go-6.html" />
+    <link rel="canonical" href="https://ci8.it/codicini.html" />
 
-    <meta name="description" content="Reverse engineering the Vasco DIGIPASS GO 6.">
+    <meta name="description" content="Something about all.">
 
-    <meta name="robots" content="digipass-go-6.html" />
+    <meta name="robots" content="codicini.html" />
     <!-- SEO -->
     
 
@@ -108,71 +102,10 @@
 
 
 
-<div class="container title">
-    <div class="col-lg-10 mx-auto">
-        <h1>DIGIPASS GO 6</h1>
-    </div>
-</div>
+
+<div class="container codicini"><a class="btn btn-primary" href="#" role="button">Cliccami!</a></div>
 
 
-<div class="container">
-
-<div class="col-lg-10 mx-auto tags">
-    <a href="digipass-go-6.html"><img src="images/icons/en_GB.svg" class="svg-icon" data-toggle="tooltip" data-placement="top" title="en"></a>
-    
-    
-    <a href="categories.html#teardowns">
-      <i class="fas fa-tools text-secondary" data-toggle="tooltip" data-placement="top" title="Teardowns"></i>
-    </a>
-    
-    <a href="tags.html#teardown">Teardown</a>, <a href="tags.html#reversing">Reversing</a>
-</div>
-
-<div class="col-lg-10 mx-auto text-secondary">
-    <em>Christian Bianciotto - 2019-04-18</em>
-</div>
-</div>
-
-<div class="container md">
-    <div class="col-lg-10 mx-auto">
-        <p>Recently I retriever some bank security token (dismissed in favour of authentication using the smartphone app) and i would to analyze them.</p>
-
-<p>Over the plastic shell is reported the site  of manufacturer, so after some click I found that this tokens are <a href="https://www.vasco.com/products/two-factor-authenticators/hardware/one-button/digipass-go-6.html">Vasco DIGIPASS GO 6</a> (also used by <em>Blizzard</em>).</p>
-
-<p>After removing the two labels I not found screws, so I used the hard way and after some time I discovered the board:</p>
-
-<p><img src="https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/images/all.jpg" alt="DIGIPASS GO 6" /></p>
-
-<p>In this picture are visible <strong>6 drill</strong> in the plastic shell in correspondence of 6 test points over the board. This probably was made in order to allow to flash the firmware after closing the shell (tipically this can be an ICSP interface).</p>
-
-<p>In <a href="https://www.youtube.com/watch?v=c1FqmqPsM0g">this video</a> seems that the <em>DIGIPASS GO 3</em> mount the same board.</p>
-
-<p>After some more analysis I found <strong>11 test poits</strong>:</p>
-
-<p><img src="https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/images/back.jpg" alt="Board back" /></p>
-
-<p>Over the board is also visible a <strong>chip-on-board MCU</strong> (COB make hard to discover the model), a <strong>crystal oscillator</strong> (X1), some <strong>resistors</strong> and some <strong>capacitors</strong>.
-The T1 elemet seems to be an <strong>transistor</strong>.</p>
-
-<p>Using my multimeter for inspection I have draw a partial schematic:</p>
-
-<p><img src="https://raw.githubusercontent.com/ciotto/teardown/master/digipass-go-6/images/schematic.png" alt="Partial schematic" /></p>
-
-<h3>Links</h3>
-
-<ul>
-<li><a href="https://www.youtube.com/watch?v=oktBQXH7NhI">DIGIPASS GO 6 Shell open video</a></li>
-<li><a href="https://xiaolabadiy.tumblr.com/page/29">DIGIPASS GO 3 rev 0E</a></li>
-<li><a href="https://www.youtube.com/watch?v=NqtPt3L80mo">DIGIPASS GO replicate</a></li>
-<li><a href="https://blog.valverde.me/2014/01/03/reverse-engineering-my-bank's-security-token/#.XKdM4OszZTZ">App Token Reverse</a></li>
-</ul>
-
-    </div>
-</div>
-
-
-
-<div id="disqus_thread" class="col-lg-8 col-md-10 mx-auto"></div>
 
 <!-- Footer -->
 <footer>
@@ -221,7 +154,6 @@ The T1 elemet seems to be an <strong>transistor</strong>.</p>
 
 
 
-
 <!--  Scripts-->
 <!-- Bootstrap core JavaScript -->
 <script src="/vendor/jquery/jquery.min.js"></script>
@@ -246,23 +178,16 @@ The T1 elemet seems to be an <strong>transistor</strong>.</p>
 
 </script>
 
-
 <script>
-var disqus_config = function () {
-  this.page.url = 'https://ci8.it/digipass-go-6.html';  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = 'digipass-go-6.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  this.language = 'en';
-};
+    $(function () {
+      var messages = ["Good!", "Great!", "Awesome!", "Super!", "Nice!"];
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://ci8.disqus.com/embed.js';
-s.setAttribute('data-timestamp', + new Date());
-(d.head || d.body).appendChild(s);
-})();
+      $('.codicini').delegate('.btn', 'click', function () {
+        var msg = messages[Math.floor(Math.random() * messages.length)];
+        $('.codicini').append($('<a class="btn btn-primary" href="#" role="button">' + msg + '</a>'));
+      });
+    })
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
 
 
 </body>

@@ -132,3 +132,16 @@ body {
 #categories .post-preview>.post-meta {
     margin-bottom: 0;
 }
+
+img.svg-icon {
+    width: 1em;
+}
+
+.container.codicini {
+    height: calc(100vh - 210px);
+    padding-top: 65px;
+}
+.container.codicini .btn {
+    margin: 5px;
+    background: #212529;
+}

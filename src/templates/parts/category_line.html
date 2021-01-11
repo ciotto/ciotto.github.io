@@ -1,7 +1,8 @@
 <!-- Main Content -->
 <div id="{{ c.slug }}" class="post-category">
     <h2 class="post-title">
-      <i class="{{ c.icon }} text-secondary" data-toggle="tooltip" data-placement="top" title="{{ c.name }}"></i> {{ c.name }}
+      {% if c.icon_svg %}<img src="{{ c.icon_svg }}" class="svg-icon" data-toggle="tooltip" data-placement="top" title="{{ c.name }}">
+      {% else %}<i class="{{ c.icon }} text-secondary" data-toggle="tooltip" data-placement="top" title="{{ c.name }}"></i>{% endif %} {{ c.name }}
     </h2>
 
     {% for c in c.children %}{% include 'parts/category_line.html' %}{% endfor %}
