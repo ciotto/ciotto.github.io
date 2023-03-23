@@ -31,9 +31,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -103,6 +100,7 @@ li {
 	/*second line indent*/
 	padding-left: 1.25em;
 	text-indent: -1.25em;
+	margin-left: 1em;
 	/*color: #777;*/
 }
 
@@ -135,7 +133,7 @@ h1+p {
 
 h2 {
 	font-size: 1.1em;
-	color: #a00;
+	color: #f44336;
 	margin-top: 2em;
 	position: relative;
 	top: 1.2em;

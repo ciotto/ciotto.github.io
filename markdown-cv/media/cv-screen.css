@@ -31,9 +31,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -87,7 +84,7 @@ p code {
 ul { 
 	position: relative;
 	left: 25%;
-	width: 75%;
+	width: 60%;
 	margin-bottom: 1.5em;
 	margin-top: -0.5em;
 }
@@ -103,6 +100,7 @@ li {
 	/*second line indent*/
 	padding-left: 1.25em;
 	text-indent: -1.25em;
+	margin-left: 1em;
 	/*color: #777;*/
 }
 
@@ -135,7 +133,7 @@ h1+p {
 
 h2 {
 	font-size: 1.1em;
-	color: #bc412b;
+	color: #f44336;
 	margin-top: 3em;
 	position: relative;
 	top: 1.4em;
@@ -165,9 +163,13 @@ a:hover {
 	margin-top: 1em;
 	position: relative;
 	left: 25%;
-	color: #bc412b;
+	color: #f44336;
 	font-family: Monaco,Menlo,monospace,sans-serif;
 	font-size: 100%;
+}
+
+#webaddress .fas, #webaddress .fab {
+    color: #6c757d;
 }
 
 #webaddress a {
