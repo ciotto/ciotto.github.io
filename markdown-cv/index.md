@@ -5,11 +5,8 @@ title: Christian Bianciotto's CV
 # Christian Bianciotto
 Lead Software Engineer, interested in many things
 
-Casavo s.p.a.<br/>
-
-<a href="mail@ci8.it">mail@ci8.it</a>
-
 <div id="webaddress">
+  <a href="mail@ci8.it"><i class="fas fa-at"></i> mail@ci8.it</a> -
   <a href="https://ci8.it"><i class="fas fa-home"></i> ci8.it</a> -
   <a href="https://github.com/ciotto"><i class="fab fa-github"></i> ciotto</a> -
   <a href="https://www.linkedin.com/in/ci8/?locale=en_US"><i class="fab fa-linkedin"></i> Christian Bianciotto</a>
@@ -78,16 +75,13 @@ Designed, developed, and maintained Realisti.co, a platform that allows real est
 
 ## Languages
 
-Native: Italian
+Italian: native
 
-Good: English
+English: fluent
 
-Basic: French
+French: basic
 
 ## Other interests
 Space exploration, electronics, embedded systems, software security, climbing, motors, video games.
-
-## Personal
-Birth date: May 1987
 
 <br/>Last updated: March 2023<br/><br/>
