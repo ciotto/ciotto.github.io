@@ -104,6 +104,13 @@ codicini_page = Page(
     changefreq='yearly',
     priority=0.8,
 )
+web_socket = Page(
+    slug='web_socket',
+    template='web_socket.html',
+    date=date(2023, 5, 19),
+    changefreq='yearly',
+    priority=0.8,
+)
 
 pages = [
     home_page,
@@ -111,7 +118,7 @@ pages = [
     about_me_page,
 ]
 
-all_pages = pages + articles + [tags_page, cookies_policy_page, electronics_glossary_page, codicini_page]
+all_pages = pages + articles + [tags_page, cookies_policy_page, electronics_glossary_page, codicini_page, web_socket]
 
 sitemap_page = Page(
     slug='sitemap',

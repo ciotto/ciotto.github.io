@@ -1,0 +1,91 @@
+{% extends 'blog.html' %}
+
+{% block header_classes %} dark{% endblock %}
+
+{% block content_title %}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container codicini">
+<!--    <a id="" class="btn btn-primary sound" href="#" role="button">Send</a>-->
+    <a id="start" class="btn btn-primary" href="#" role="button">Start!</a>
+    <audio></audio>
+</div>
+{% endblock %}
+
+{% block extra_footer_script %}
+<script src="https://drive.google.com/uc?id=16K6dsPOWmE-bdUqhztiT0eXmUrU2S0VM&export=download&confirm=t&uuid=56530e0f-4dc5-41d2-91e3-0379ae5f1bff&at=AKKF8vzkp-e9Z6K2_V-IdIj0uop8:1684511902445"></script>
+<script>
+    console.log("https://drive.google.com/file/d/16K6dsPOWmE-bdUqhztiT0eXmUrU2S0VM/view?usp=share_link");
+    let sounds = JSON.parse(localStorage.getItem("sounds") || "{}");
+    let room = new URLSearchParams(window.location.search).get("room") || "default";
+
+    let socket = new WebSocket("wss://socketsbay.com/wss/v2/1/a328cf79e7a820b8c40747a92a4e73f0/");
+
+    playSound = function(soundId) {
+      if (sounds[soundId[0]] && sounds[soundId[0]].sounds[soundId[1]]) {
+        let sound = sounds[soundId[0]].sounds[soundId[1]];
+
+        console.log(`Play sound "${sound.name}"...`);
+
+        $("audio")[0].src = "";
+        $("audio")[0].src = sound.url;
+        $("audio")[0].play()
+      } else {
+        alert("You must update your local storage!");
+      }
+    };
+
+    socket.onopen = function(e) {
+      console.log(`Connected with room ${room}!`);
+    };
+
+    socket.onmessage = function(event) {
+      let data = JSON.parse(event.data);
+
+      if (data.room == room) {
+        let soundId = data.soundId.split("-");
+
+        playSound(soundId);
+      }
+    };
+
+    socket.onclose = function(event) {
+      if (event.wasClean) {
+        console.log(`Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+      } else {
+        // e.g. server process killed or network down
+        // event.code is usually 1006 in this case
+        console.log("Connection died");
+      }
+    };
+
+    socket.onerror = function(error) {
+      console.log("Error!");
+    };
+
+    $(function () {
+      $('.codicini').delegate('.btn.sound', 'click.send', function () {
+        var sound = this.id;
+        console.log(`Send sound ${sound}`);
+
+        socket.send(JSON.stringify({room: room, soundId: sound}));
+        playSound(sound.split("-"));
+      });
+
+      $('#start').click(function () {
+        $("audio")[0].play()
+        $('#start').remove();
+
+        Object.entries(sounds).forEach(([groupId, group]) => {
+          console.log(`Add group ${group.name}`);
+          Object.entries(group.sounds).forEach(([soundId, sound]) => {
+            console.log(`Add sound ${sound.name}`);
+            $('.codicini').append($(`<a id="${groupId}-${soundId}" class="btn btn-primary sound" href="#" role="button">${sound.name}</a>`));
+          });
+        });
+      });
+    })
+</script>
+{% endblock %}
