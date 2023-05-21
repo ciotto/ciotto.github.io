@@ -138,7 +138,7 @@ img.svg-icon {
 }
 
 .container.codicini {
-    height: calc(100vh - 210px);
+    min-height: calc(100vh - 210px);
     padding-top: 65px;
 }
 .container.codicini .btn {
