@@ -80,6 +80,7 @@
 
         Object.entries(sounds).forEach(([groupId, group]) => {
           console.log(`Add group ${group.name}`);
+          $('.codicini').append($(`<br /><h1>${group.name}</h1>`));
           Object.entries(group.sounds).forEach(([soundId, sound]) => {
             console.log(`Add sound ${sound.name}`);
             $('.codicini').append($(`<a id="${groupId}-${soundId}" class="btn btn-primary sound" href="#" role="button">${sound.name}</a>`));
