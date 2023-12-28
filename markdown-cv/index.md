@@ -27,7 +27,18 @@ In 2020 Casavo acquired Realisti.co and I started my experience in a hypergrowth
 
 ## Experience
 
-`Nov 2020-Current`
+`August 2023-Current`
+**Otter Finance**<br>
+*Lead Software Engineer and Product Developer*<br>
+Maintain and evolve an application to manage investment and request loans
+- Improved product and software by finding fast and flexible solutions to business needs
+- Migrated the application from a private Docker server to an AWS EKS cluster
+- Optimized and stabilized the application by refactoring code, writing tests and adopting the use of best practice
+- Wrote CI/CD pipelines to check, test and fastly deploy stable code to production
+- Optimized Docker images for a fast deploy
+- Simplified the development environment for easy onboarding
+
+`Nov 2020-July 2023`
 **Casavo Management S.p.A.**<br>
 *Lead Software Engineer and Product Developer*<br>
 Led a team of 6 people responsible for delivering content to real estate agents
