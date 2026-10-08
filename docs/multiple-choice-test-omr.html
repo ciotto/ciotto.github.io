@@ -141,14 +141,14 @@
 <p>Some days ago, my wife asked me to help her to correct some multiple choice tests and, since I hate to lost my time, I 
 spent some hours in order to write a script that automate the data extrapolation.</p>
 
-<p>After googling some information, I found an <a href="https://www.pyimagesearch.com/2016/10/03/bubble-sheet-multiple-choice-scanner-and-test-grader-using-omr-python-and-opencv/">interesting article by Adrian Rosebrock</a> that talk about this, so I tried his approach  and the result of <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/test1.py">first test</a> was good:</p>
+<p>After googling some information, I found an <a href="https://www.pyimagesearch.com/2016/10/03/bubble-sheet-multiple-choice-scanner-and-test-grader-using-omr-python-and-opencv/">interesting article by Adrian Rosebrock</a> that talk about this, so I tried his approach  and the result of <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/test1.py">first test</a> was good:</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/test1.jpg" alt="Test 1" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/test1.jpg" alt="Test 1" /></p>
 
 <p>This code, basically, convert the image in a black and white version and find all contours with <code>findContours</code> and 
 <code>grab_contours</code>. After that, the contours are filtered and ordered in a matrix.</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/mask_test4.gif" alt="Test 1 mask" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/mask_test4.gif" alt="Test 1 mask" /></p>
 
 <p>In many cases worked well, but in other cases did not work, this happened because I used irregular tests:</p>
 
@@ -172,33 +172,33 @@ cases:</p>
 <code>countNonZero</code> in a matrix in order to determine a threshold value and use it for find the checked boxes, this allowed 
 to find multiple checked boxes for each line.</p>
 
-<p>I runned the <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/test2.py">second test</a> and the results was better:</p>
+<p>I runned the <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/test2.py">second test</a> and the results was better:</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/test2.jpg" alt="Test 2" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/test2.jpg" alt="Test 2" /></p>
 
 <p>Assuming that the number of the columns and the number of the rows is know, I tried to skip the part that find the 
-contours and I splited the image in the correct number of sectors, the result of <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/test3.py">third test</a> was greate:</p>
+contours and I splited the image in the correct number of sectors, the result of <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/test3.py">third test</a> was greate:</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/test3.jpg" alt="Test 3" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/test3.jpg" alt="Test 3" /></p>
 
 <p>Well, in the real case, the checkboxes are probably in a large sheet with some text and the approach that search the 
-contours probably work well, so I tried and the best <a href="images/test4/">result</a> of this <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/test4.py">fourth test</a> was how I 
+contours probably work well, so I tried and the best <a href="images/test4/">result</a> of this <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/test4.py">fourth test</a> was how I 
 expected:</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/test4/res_test5-b.png" alt="Test 4" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/test4/res_test5-b.png" alt="Test 4" /></p>
 
 <p>Of course, with bigger checkboxes or in general with a well formed test the results are better, but my scope is to 
 create a script that works in all the cases with correct configurations.</p>
 
-<p>In the <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/test5.py">test number five</a>, I added a bounding box as new parameter and all the results have been perfect.</p>
+<p>In the <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/test5.py">test number five</a>, I added a bounding box as new parameter and all the results have been perfect.</p>
 
-<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/electronics/teardowns/multiple_choice_test_omr/images/test5/res_test5-b.png" alt="Test 5" /></p>
+<p><img src="https://raw.githubusercontent.com/ciotto/ciotto.github.io/master/src/articles/python/multiple_choice_test_omr/images/test5/res_test5-b.png" alt="Test 5" /></p>
 
 <p>This solution can be a little bit more complex for the user but, for my purpose, is more flexible.</p>
 
 <h2>Run the tests</h2>
 
-<p>In order to run the tests you can download <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/electronics/teardowns/multiple_choice_test_omr/.">this folder</a>, create a <strong>virtualenv</strong> and install requirements:</p>
+<p>In order to run the tests you can download <a href="https://github.com/ciotto/ciotto.github.io/blob/master/src/articles/python/multiple_choice_test_omr/.">this folder</a>, create a <strong>virtualenv</strong> and install requirements:</p>
 
 <pre><code>$ virtualenv .virtualenv --system-site-packages
 $ source .virtualenv/bin/activate

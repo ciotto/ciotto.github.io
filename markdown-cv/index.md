@@ -14,9 +14,14 @@ Lead Software Engineer, interested in many things
 
 ## Who Am I
 
-I'm a software developer since 2011, for 3 years I worked on **mobile applications** for iOS and Android devices and I achieved a good level of experience with Android Studio and Xcode IDEs, with the most used programming patterns and with various frameworks.
-In 2014 I started working in **Python** with the **Django** framework, over the course of a couple of years I greatly improved my skills until I started designing, developing, and maintaining the **Realisti.co** web application with its REST API, obtaining almost 100% of test coverage and setting up the GitHub Action pipeline for CI. I also designed and maintained a 10-machine **AWS infrastructure** using **Ansible** and improved and maintained a deployment script that allows you to deploy without downtime.
-In 2020 Casavo acquired Realisti.co and I started my experience in a hypergrowth company that allowed me to increase my **DevOps** and **leadership** skills by leading 6 people to build a **user-centric** product from an existing legacy codebase.
+I'm a software developer since 2011. For three years, I worked on **mobile applications** for iOS and Android devices, gaining solid experience with Android Studio and Xcode, common software development patterns, and a wide range of frameworks and libraries.
+In 2014, I started working with **Python and Django**. Over the following years, I significantly expanded my backend development skills, eventually taking ownership of the design, development, and maintenance of the **Realisti.co** web application and its REST API. I focused heavily on code quality and reliability, achieving almost **100% test coverage** and setting up the **GitHub Actions CI pipeline**.
+Alongside backend development, I designed and maintained a **10-machine AWS infrastructure** using **Ansible**, and improved the deployment process by developing and maintaining a deployment script capable of performing **zero-downtime deployments**.
+In 2020, **Casavo acquired Realisti.co**, marking the beginning of my experience in a hypergrowth company. This allowed me to further develop my **DevOps, technical leadership, and product development skills**, while leading a team of six engineers in transforming an existing legacy codebase into a more **user-centric product**.
+In the following years, I continued working in **early-stage and fast-growing startups**, including **Otter Finance in 2024, Glaut in 2025, and Homepay**, where I currently work as a **Lead Software Engineer**.
+Working in small, dynamic teams has allowed me to strengthen my ability to take **end-to-end ownership of technical challenges**, from backend architecture and product development to cloud infrastructure and production operations. I have progressively expanded my expertise in **AWS, Kubernetes, EKS, Helm, Terraform, and DevOps**, while continuing to work hands-on with **Python, Django, and Django REST Framework**.
+Today, my work sits at the intersection of **backend engineering, cloud infrastructure, DevOps, and technical leadership**, with a strong focus on building reliable, scalable, and maintainable products in fast-moving environments.
+
 
 ## Extra skills
 
@@ -27,7 +32,30 @@ In 2020 Casavo acquired Realisti.co and I started my experience in a hypergrowth
 
 ## Experience
 
-`August 2023-Current`
+`February 2025-Current`
+**Homepay**<br>
+*Lead Software Engineer*<br>
+I lead the design and development of backend and cloud infrastructure, with a strong focus on scalability, reliability, security, and automation.
+My main responsibilities include:
+ - Designing and developing backend services and APIs using Python, Django, and Django REST Framework.
+ - Leading the integration with Banking-as-a-Service (BaaS) providers and external financial systems, ensuring reliable and secure communication between services.
+ - Designing and maintaining cloud-native infrastructure on AWS using Kubernetes, Amazon EKS, Helm and Terraform.
+ - Building and maintaining CI/CD pipelines using GitHub Actions, with a focus on automation, deployment reliability, and developer productivity.
+ - Driving technical decisions and architectural improvements across backend and infrastructure components.
+ - Supporting engineering best practices around code quality, observability, security, deployment strategies, and operational reliability.
+ - Collaborating with cross-functional teams to translate business requirements into robust and scalable technical solutions.
+
+`February 2024-February 2025`
+**Glaut**<br>
+*Lead Software Engineer*<br>
+I contributed to building a robust, scalable, and high-performing engineering environment in a fast-paced AI-native startup.
+- Enhanced Software Stability & Reliability: Implemented monitoring and alerting systems to improve system resilience.
+- Accelerated Product Development: Optimized project structure to support faster iteration and scalability.
+- Test Suite Implementation: Designed and developed a test suite, increasing test coverage from 0% to 88%, improving code quality and confidence.
+- CI/CD Pipeline & Automation: Built a CI/CD pipeline to streamline deployments and ensure continuous delivery.
+- Staging Environment Setup: Established a staging environment to facilitate pre-production testing and smooth releases.
+
+`August 2023-February 2024`
 **Otter Finance**<br>
 *Lead Software Engineer and Product Developer*<br>
 Maintain and evolve an application to manage investment and request loans

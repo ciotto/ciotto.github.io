@@ -49,6 +49,12 @@ system = Category(
     icon='fas fa-server',
     page=None,
 )
+garage = Category(
+    slug='garage',
+    name='Garage',
+    icon='fas fa-gears',
+    page=None,
+)
 category_list = [
     electronics,
     teardowns,

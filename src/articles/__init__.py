@@ -1,4 +1,5 @@
 from articles.arduino import *
+from articles.bp800ie import *
 from categories import *
 from models import Page
 from utilities import html_from_markdown_url
@@ -49,7 +50,7 @@ multiple_choice_test_omr_page = Page(
     date=date(2020, 1, 17),
     changefreq='monthly',
     priority=0.8,
-    md=html_from_markdown_url('src/electronics/teardowns/multiple_choice_test_omr/README.md'),
+    md=html_from_markdown_url('src/articles/python/multiple_choice_test_omr/README.md'),
     description='Making an OMR for a generic multiple choice test, step by step, using OpenCV and Python.',
     og_image='https://ci8.it/images/share/multiple_choice_test_omr.jpg',
     category=python,
@@ -66,7 +67,7 @@ mod_wsgi_error_page = Page(
     date=date(2020, 1, 29),
     changefreq='monthly',
     priority=0.8,
-    md=html_from_markdown_url('src/electronics/teardowns/mod_wsgi_error/README.md'),
+    md=html_from_markdown_url('src/articles/system/mod_wsgi_error/README.md'),
     description='mod_wsgi: Truncated or oversized response headers received from daemon process.',
     og_image='https://ci8.it/images/share/mod_wsgi_error.jpg',
     category=system,
@@ -84,6 +85,7 @@ articles = [
     haier_t32x_page,
     digipass_go_6_page,
     intro_to_arduino_page,
+    bp800ie_step1,
 ]
 articles = sorted(articles, reverse=True, key=lambda a: a.date)
 last_articles = articles[:2]
